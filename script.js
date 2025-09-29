@@ -335,3 +335,23 @@ langOptions.forEach((option) => {
         translatePage(langCode);
     });
 });
+
+// Floating Top Button
+const topBtn = document.getElementById("topBtn");
+
+// Show/hide button based on scroll position
+window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 300) {
+        topBtn.classList.add("show");
+    } else {
+        topBtn.classList.remove("show");
+    }
+});
+
+// Scroll to top when button is clicked
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+});
