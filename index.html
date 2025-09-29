@@ -26,38 +26,66 @@
                     ><span class="logo-dot"></span>Yumehwa</a
                 >
                 <nav class="nav">
-                    <a href="#hero">Home</a>
-                    <a href="#services">About</a>
-                    <a href="#contact" class="btn btn-sm btn-primary"
+                    <a href="#hero" data-key="nav.home">Home</a>
+                    <a href="#services" data-key="nav.about">About</a>
+                    <a
+                        href="#contact"
+                        class="btn btn-sm btn-primary"
+                        data-key="nav.contact"
                         >Contact</a
                     >
+                    <div class="lang-dropdown">
+                        <button class="lang-toggle" aria-expanded="false">
+                            <i class="ri-global-line"></i>
+                            English
+                            <i class="ri-arrow-down-s-line"></i>
+                        </button>
+                        <ul class="lang-menu">
+                            <li>
+                                <a href="#" class="lang-option active"
+                                    >English</a
+                                >
+                            </li>
+                            <li><a href="#" class="lang-option">한국어</a></li>
+                        </ul>
+                    </div>
                 </nav>
             </div>
         </header>
 
         <!-- Hero -->
         <section id="hero" class="hero section">
-            <div
-                class="hero-bg"
-                role="img"
-                aria-label="studio background"
-            ></div>
+            <div class="hero-bg">
+                <img
+                    src="images/hero_bg.png"
+                    alt="Creative design studio workspace"
+                    class="hero-image"
+                />
+            </div>
             <div class="container hero-inner">
-                <h1 class="hero-title">
+                <h1 class="hero-title" data-key="hero.title">
                     Transform Your Vision<br class="md-hide" />
                     Into
                     <span class="accent">Stunning Design</span>
                 </h1>
-                <p class="hero-desc">
-                    We’re a creative design studio that brings brands to life
+                <p class="hero-desc" data-key="hero.desc">
+                    We're a creative design studio that brings brands to life
                     through innovative design solutions, strategic thinking, and
                     exceptional craftsmanship.
                 </p>
                 <div class="btn-row">
-                    <a href="#contact" class="btn btn-primary"
+                    <a
+                        href="#contact"
+                        class="btn btn-primary"
+                        data-key="hero.start"
                         >Start Your Project</a
                     >
-                    <a href="#portfolio" class="btn btn-ghost">View Our Work</a>
+                    <a
+                        href="#portfolio"
+                        class="btn btn-ghost"
+                        data-key="hero.view"
+                        >View Our Work</a
+                    >
                 </div>
             </div>
         </section>
@@ -66,8 +94,8 @@
         <section id="services" class="section">
             <div class="container">
                 <header class="section-head">
-                    <h2>Our Creative Services</h2>
-                    <p>
+                    <h2 data-key="services.title">Our Creative Services</h2>
+                    <p data-key="services.desc">
                         We offer comprehensive design solutions to help your
                         brand stand out. From concept to completion, we're your
                         creative partners.
@@ -77,7 +105,7 @@
                 <div class="card-grid">
                     <article class="card">
                         <img
-                            src="https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=1200&auto=format&fit=crop"
+                            src="images/services/brand-identity.jpg"
                             alt="brand identity"
                             loading="lazy"
                         />
@@ -85,8 +113,8 @@
                             <div class="card-icon">
                                 <i class="ri-contrast-drop-2-line"></i>
                             </div>
-                            <h3>Brand Identity</h3>
-                            <p>
+                            <h3 data-key="services.brand">Brand Identity</h3>
+                            <p data-key="services.brand.desc">
                                 Create memorable brand identities that capture
                                 your essence and connect with your audience
                                 through strategic design thinking.
@@ -96,7 +124,7 @@
 
                     <article class="card">
                         <img
-                            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+                            src="images/services/web-design.jpg"
                             alt="web design"
                             loading="lazy"
                         />
@@ -104,8 +132,8 @@
                             <div class="card-icon">
                                 <i class="ri-window-line"></i>
                             </div>
-                            <h3>Web Design</h3>
-                            <p>
+                            <h3 data-key="services.web">Web Design</h3>
+                            <p data-key="services.web.desc">
                                 Design beautiful, responsive websites that
                                 deliver exceptional user experiences and drive
                                 business results.
@@ -115,7 +143,7 @@
 
                     <article class="card">
                         <img
-                            src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?q=80&w=1200&auto=format&fit=crop"
+                            src="images/services/graphic-design.jpg"
                             alt="graphic design"
                             loading="lazy"
                         />
@@ -123,8 +151,8 @@
                             <div class="card-icon">
                                 <i class="ri-palette-line"></i>
                             </div>
-                            <h3>Graphic Design</h3>
-                            <p>
+                            <h3 data-key="services.graphic">Graphic Design</h3>
+                            <p data-key="services.graphic.desc">
                                 From marketing materials to digital graphics, we
                                 create compelling designs that communicate your
                                 message effectively.
@@ -134,7 +162,7 @@
 
                     <article class="card">
                         <img
-                            src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?q=80&w=1200&auto=format&fit=crop"
+                            src="images/services/package-design.jpg"
                             alt="package design"
                             loading="lazy"
                         />
@@ -142,8 +170,8 @@
                             <div class="card-icon">
                                 <i class="ri-copyright-line"></i>
                             </div>
-                            <h3>Package Design</h3>
-                            <p>
+                            <h3 data-key="services.package">Package Design</h3>
+                            <p data-key="services.package.desc">
                                 Creative packaging solutions that protect your
                                 products while creating memorable unboxing
                                 experiences.
@@ -153,7 +181,7 @@
 
                     <article class="card">
                         <img
-                            src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop"
+                            src="images/services/print-design.jpg"
                             alt="print design"
                             loading="lazy"
                         />
@@ -161,8 +189,8 @@
                             <div class="card-icon">
                                 <i class="ri-printer-line"></i>
                             </div>
-                            <h3>Print Design</h3>
-                            <p>
+                            <h3 data-key="services.print">Print Design</h3>
+                            <p data-key="services.print.desc">
                                 Professional print design services for business
                                 cards, brochures, packaging, and all your
                                 marketing materials.
@@ -172,7 +200,7 @@
 
                     <article class="card">
                         <img
-                            src="https://images.unsplash.com/photo-1529336953121-adb2c9c0904b?q=80&w=1200&auto=format&fit=crop"
+                            src="images/services/creative-consulting.jpg"
                             alt="creative consulting"
                             loading="lazy"
                         />
@@ -180,8 +208,10 @@
                             <div class="card-icon">
                                 <i class="ri-lightbulb-line"></i>
                             </div>
-                            <h3>Creative Consulting</h3>
-                            <p>
+                            <h3 data-key="services.consulting">
+                                Creative Consulting
+                            </h3>
+                            <p data-key="services.consulting.desc">
                                 Strategic creative guidance to help you make
                                 informed design decisions and achieve your
                                 goals.
@@ -196,8 +226,8 @@
         <section id="portfolio" class="section">
             <div class="container">
                 <header class="section-head">
-                    <h2>Our Creative Portfolio</h2>
-                    <p>
+                    <h2 data-key="portfolio.title">Our Creative Portfolio</h2>
+                    <p data-key="portfolio.desc">
                         Explore our latest projects and see how we've helped
                         brands transform their vision into stunning visual
                         experiences.
@@ -209,14 +239,31 @@
                         class="pill is-active"
                         data-filter="all"
                         aria-selected="true"
+                        data-key="portfolio.all"
                     >
                         All
                     </button>
-                    <button class="pill" data-filter="branding">
+                    <button
+                        class="pill"
+                        data-filter="branding"
+                        data-key="portfolio.branding"
+                    >
                         Branding
                     </button>
-                    <button class="pill" data-filter="web">Web Design</button>
-                    <button class="pill" data-filter="print">Print</button>
+                    <button
+                        class="pill"
+                        data-filter="web"
+                        data-key="portfolio.web"
+                    >
+                        Web Design
+                    </button>
+                    <button
+                        class="pill"
+                        data-filter="print"
+                        data-key="portfolio.print"
+                    >
+                        Print
+                    </button>
                 </div>
 
                 <div class="portfolio-grid">
@@ -264,7 +311,12 @@
                 </div>
 
                 <div class="center mt-32">
-                    <a href="#" class="btn btn-primary">View All Projects</a>
+                    <a
+                        href="#"
+                        class="btn btn-primary"
+                        data-key="portfolio.viewAll"
+                        >View All Projects</a
+                    >
                 </div>
             </div>
         </section>
@@ -273,22 +325,32 @@
         <section class="section split">
             <div class="container split-grid">
                 <div class="split-text">
-                    <h2>Crafting Exceptional Design Experiences</h2>
-                    <p>
-                        We’re a passionate team of designers, strategists, and
-                        creative thinkers dedicated to bringing your brand’s
+                    <h2 data-key="about.title">
+                        Crafting Exceptional Design Experiences
+                    </h2>
+                    <p data-key="about.desc1">
+                        We're a passionate team of designers, strategists, and
+                        creative thinkers dedicated to bringing your brand's
                         story to life through innovative design solutions.
                     </p>
-                    <p>
+                    <p data-key="about.desc2">
                         Our approach combines strategic thinking with creative
                         excellence, ensuring every project not only looks
                         stunning but also achieves your business objectives.
                     </p>
                     <div class="btn-row">
-                        <a href="#contact" class="btn btn-primary"
+                        <a
+                            href="#contact"
+                            class="btn btn-primary"
+                            data-key="about.work"
                             >Work With Us</a
                         >
-                        <a href="#services" class="btn btn-ghost">Learn More</a>
+                        <a
+                            href="#services"
+                            class="btn btn-ghost"
+                            data-key="about.learn"
+                            >Learn More</a
+                        >
                     </div>
                 </div>
                 <div class="split-media">
