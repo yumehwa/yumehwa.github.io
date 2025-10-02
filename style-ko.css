@@ -1,0 +1,774 @@
+/* 한글 페이지 전용 스타일 */
+.korean-layout {
+    background: #f3f3e6;
+    color: #1c0303;
+    font-family: "Noto Sans KR", "Pretendard", sans-serif;
+}
+
+.korean-hero {
+    background: #f3f3e6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.korean-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("images/hero_bg.png") center/cover;
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.korean-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-main-text {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+    color: #1c0303;
+    text-align: center;
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 스크롤 애니메이션 텍스트 */
+.scroll-text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.scroll-text-line {
+    position: absolute;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 12rem;
+    color: rgba(28, 3, 3, 0.08);
+    white-space: nowrap;
+    transform: translateX(0);
+    line-height: 0.8;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.scroll-text-line:nth-child(1) {
+    top: 15%;
+    transition-delay: 0.1s;
+}
+
+.scroll-text-line:nth-child(2) {
+    top: 30%;
+    transition-delay: 0.2s;
+}
+
+.scroll-text-line:nth-child(3) {
+    top: 45%;
+    transition-delay: 0.3s;
+}
+
+.scroll-text-line:nth-child(4) {
+    top: 60%;
+    transition-delay: 0.4s;
+}
+
+/* 스크롤 애니메이션 */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* About 텍스트 애니메이션 */
+.about-title {
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    font-size: 12rem;
+    font-weight: 900;
+    color: white;
+    margin: 0;
+    line-height: 0.8;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-title.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-content {
+    max-width: none;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.about-content.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 섹션 스티키 효과 */
+.korean-about {
+    padding: 0;
+    background: #f3f3e6;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.korean-works {
+    padding: 0;
+    background: #f3f3e6;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.korean-section {
+    padding: 80px 0;
+    background: white;
+    color: #1c0303;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* 스크롤 진행 표시기 */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff5956, #1c0303);
+    z-index: 1001;
+    transition: width 0.1s ease;
+}
+
+/* 부드러운 스크롤 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 애니메이션 지연 효과 */
+.animate-delay-1 {
+    transition-delay: 0.1s;
+}
+.animate-delay-2 {
+    transition-delay: 0.2s;
+}
+.animate-delay-3 {
+    transition-delay: 0.3s;
+}
+.animate-delay-4 {
+    transition-delay: 0.4s;
+}
+.animate-delay-5 {
+    transition-delay: 0.5s;
+}
+
+/* 애플 스타일 인터랙션 */
+.korean-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #ff5956;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    margin: 0 10px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid #ff5956;
+    position: relative;
+    overflow: hidden;
+}
+
+.korean-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.korean-btn:hover::before {
+    left: 100%;
+}
+
+.korean-btn:hover {
+    background: transparent;
+    color: #ff5956;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 89, 86, 0.3);
+}
+
+.korean-btn.primary {
+    background: #ff5956;
+    color: white;
+}
+
+.korean-btn.primary:hover {
+    background: transparent;
+    color: #ff5956;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 89, 86, 0.3);
+}
+
+/* 네비게이션 링크 애니메이션 */
+.korean-nav .nav a {
+    color: #1c0303;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.korean-nav .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff5956;
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.korean-nav .nav a:hover::after {
+    width: 100%;
+}
+
+.korean-nav .nav a:hover {
+    color: #ff5956;
+    transform: translateY(-2px);
+}
+
+/* 카드 3D 효과 */
+.korean-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(28, 3, 3, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 89, 86, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    position: relative;
+    overflow: hidden;
+}
+
+.korean-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 89, 86, 0.05),
+        rgba(28, 3, 3, 0.05)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.korean-card:hover::before {
+    opacity: 1;
+}
+
+.korean-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.korean-card:hover {
+    transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 30px 60px rgba(28, 3, 3, 0.25);
+}
+
+/* 스크롤 텍스트 애니메이션 */
+.scroll-text-line {
+    position: absolute;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 12rem;
+    color: rgba(28, 3, 3, 0.08);
+    white-space: nowrap;
+    transform: translateX(0);
+    line-height: 0.8;
+    opacity: 0.4;
+    z-index: 1;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-text-line:hover {
+    opacity: 0.6;
+    transform: translateX(20px) scale(1.02);
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.about-left {
+    background: #1c0303;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0 60px 60px 0;
+}
+
+.about-title {
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    font-size: 12rem;
+    font-weight: 900;
+    color: white;
+    margin: 0;
+    line-height: 0.8;
+    letter-spacing: -0.02em;
+}
+
+.about-right {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    width: 100%;
+}
+
+.about-content {
+    max-width: none;
+    width: 100%;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #1c0303;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.about-text:last-child {
+    margin-bottom: 0;
+}
+
+.about-highlight {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1c0303;
+    line-height: 1.4;
+}
+
+.korean-nav {
+    background: rgba(243, 243, 230, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(28, 3, 3, 0.1);
+    padding: 15px 0;
+}
+
+.korean-nav .nav-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.korean-nav .nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.korean-nav .brand {
+    color: #1c0303;
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+
+.korean-nav .nav a {
+    color: #1c0303;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.korean-nav .nav a:hover {
+    color: #ff5956;
+}
+
+.korean-nav .nav a.btn-primary {
+    background: #ff5956;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.korean-nav .nav a.btn-primary:hover {
+    background: #e54b47;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.lang-buttons {
+    display: flex;
+    gap: 0px;
+}
+
+.lang-btn:not(:first-child) {
+    margin-left: -10px;
+    position: relative;
+    z-index: 1;
+}
+
+.lang-btn:first-child {
+    position: relative;
+    z-index: 2;
+}
+
+.lang-btn {
+    padding: 5px 11px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    margin: 0;
+    border: none;
+}
+
+.lang-btn.active {
+    background: #1c0303;
+    color: white !important;
+}
+
+.lang-btn:not(.active) {
+    background: rgba(28, 3, 3, 0.2);
+    color: white;
+}
+
+.lang-btn:not(.active):hover {
+    background: #1c0303;
+    color: white;
+}
+
+.lang-btn.active:hover {
+    background: #1c0303;
+    color: white;
+}
+
+.lang-btn:hover {
+    color: white !important;
+}
+
+.korean-section {
+    padding: 80px 0;
+    background: white;
+    color: #1c0303;
+}
+
+.korean-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1c0303;
+}
+
+.korean-section p {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #666;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.korean-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.korean-card i {
+    font-size: 3rem;
+    color: #ff5956;
+    margin-bottom: 20px;
+}
+
+.korean-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1c0303;
+}
+
+.korean-card p {
+    color: #666;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.korean-footer {
+    background: #1c0303;
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.korean-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.korean-footer .brand {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.korean-footer .social a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.korean-footer .social a:hover {
+    color: #ff5956;
+}
+
+/* Floating Top Button */
+.floating-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #1c0303;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(28, 3, 3, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.floating-top-btn:hover {
+    background: #ff5956;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(28, 3, 3, 0.4);
+}
+
+.floating-top-btn i {
+    font-size: 1.2rem;
+}
+
+/* Works 섹션 */
+.korean-works {
+    padding: 0;
+    background: #f3f3e6;
+    min-height: 100vh;
+}
+
+.works-container {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    height: 100vh;
+    width: 100%;
+}
+
+.works-header {
+    background: #1c0303;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0 60px 60px 0;
+}
+
+.works-title {
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    font-size: 12rem;
+    font-weight: 900;
+    color: white;
+    margin: 0;
+    line-height: 0.8;
+    letter-spacing: -0.02em;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    padding: 40px;
+    background: white;
+}
+
+.works-item {
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.works-item:hover {
+    transform: scale(1.02);
+}
+
+.works-item-light {
+    background: #f5f5dc;
+}
+
+.works-item-dark {
+    background: #1c0303;
+}
+
+@media (max-width: 768px) {
+    .hero-main-text {
+        font-size: 2.5rem;
+    }
+
+    .korean-btn {
+        display: block;
+        margin: 10px auto;
+        max-width: 200px;
+    }
+
+    .korean-footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .scroll-text-line {
+        font-size: 6rem;
+    }
+
+    .korean-about {
+        height: auto;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .about-left {
+        padding: 40px 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-title {
+        font-size: 8rem;
+    }
+
+    .about-right {
+        padding: 40px 20px;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+    }
+
+    .works-container {
+        grid-template-rows: auto 1fr;
+        height: auto;
+    }
+
+    .works-header {
+        padding: 40px 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .works-title {
+        font-size: 8rem;
+    }
+
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        padding: 20px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-text-line {
+        font-size: 4rem;
+    }
+}
