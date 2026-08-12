@@ -52,6 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const floatVisuals = document.querySelectorAll(".ko-float-visual");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const stackedLayout = window.matchMedia(
+        "(max-width: 767px), (min-width: 768px) and (max-width: 1180px) and (orientation: portrait), (max-height: 520px) and (max-width: 950px)"
+    );
+    const touchInterface = window.matchMedia("(hover: none), (pointer: coarse)");
     const pageSections = Array.from(document.querySelectorAll("main > section[id]"));
     const initialHash = window.location.hash;
     let sectionSnapTimer;
@@ -102,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function scheduleSectionSnap() {
-        if (reduceMotion.matches || window.innerWidth <= 720 || sectionSnapActive || pageSections.length === 0) return;
+        if (reduceMotion.matches || stackedLayout.matches || sectionSnapActive || pageSections.length === 0) return;
 
         window.clearTimeout(sectionSnapTimer);
         sectionSnapTimer = window.setTimeout(() => {
@@ -219,6 +223,50 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.remove("is-card-hovered");
         });
     });
+
+    function setupTouchActivation(selector, className, options = {}) {
+        const targets = Array.from(document.querySelectorAll(selector));
+        if (!targets.length || reduceMotion.matches || !touchInterface.matches) return;
+
+        targets.forEach((target) => {
+            if (!target.matches("a, button, input, select, textarea")) {
+                target.setAttribute("tabindex", "0");
+            }
+
+            target.addEventListener("focus", () => target.classList.add(className));
+            target.addEventListener("blur", () => target.classList.remove(className));
+        });
+
+        const touchObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const layoutAllowsActivation = !options.stackedOnly || stackedLayout.matches;
+                    entry.target.classList.toggle(
+                        className,
+                        entry.isIntersecting && layoutAllowsActivation
+                    );
+                });
+            },
+            {
+                threshold: options.threshold || 0.32,
+                rootMargin: options.rootMargin || "-30% 0px -30% 0px",
+            }
+        );
+
+        targets.forEach((target) => touchObserver.observe(target));
+
+        if (options.stackedOnly) {
+            stackedLayout.addEventListener("change", (event) => {
+                if (event.matches) return;
+                targets.forEach((target) => target.classList.remove(className));
+            });
+        }
+    }
+
+    setupTouchActivation(".ko-hero-column", "is-hovered", { stackedOnly: true, threshold: 0.4 });
+    setupTouchActivation(".ko-services .korean-card", "is-card-hovered", { threshold: 0.24 });
+    setupTouchActivation(".ko-premium-card", "is-touch-active", { threshold: 0.38 });
+    setupTouchActivation(".ko-work-fields span", "is-touch-active", { threshold: 0.46 });
 
     let aboutStripWasVisible = false;
     let aboutImageReplayTimer;
