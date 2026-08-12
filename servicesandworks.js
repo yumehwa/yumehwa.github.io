@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const label = document.getElementById("detail-label");
+    const koreanLink = document.getElementById("detail-kr-link");
     const englishLink = document.getElementById("detail-en-link");
 
     function updatePageType() {
         const pageType = window.location.hash === "#works" ? "works" : "services";
 
-        if (label) {
-            label.textContent = pageType.toUpperCase();
+        if (koreanLink) {
+            koreanLink.href = `servicesandworks.html#${pageType}`;
         }
 
         if (englishLink) {
