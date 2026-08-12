@@ -6,10 +6,10 @@
         <title>유매화 스튜디오</title>
         <meta
             name="description"
-            content="브랜드 아이덴티티, 웹/그래픽/패키지/프린트 디자인, 크리에이티브 컨설팅까지 한곳에서."
+            content="브랜드 아이덴티티, 웹/그래픽/패키지/프린트 디자인, 굿즈 제작까지 한곳에서."
         />
         <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Pretendard:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Pretendard:wght@400;500;600;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap"
             rel="stylesheet"
         />
         <link
@@ -20,60 +20,105 @@
         <link rel="stylesheet" href="style-ko.css" />
     </head>
     <body class="korean-layout">
-        <!-- 스크롤 진행 표시기 -->
         <div class="scroll-progress"></div>
 
-        <!-- Header -->
-        <header class="site-header korean-nav">
-            <div class="container nav-wrap">
-                <a href="#" class="brand"
-                    ><span class="logo-dot"></span>유매화</a
-                >
-                <nav class="nav">
-                    <a href="#hero">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#works">Works</a>
-                    <a href="#services">Services</a>
-                    <a href="#contact" class="btn btn-sm btn-primary"
-                        >Contact</a
-                    >
-                    <div class="lang-buttons">
-                        <a href="index.html" class="lang-btn">English</a>
-                        <a href="#" class="lang-btn active">한국어</a>
+        <nav class="floating-language-switch" aria-label="언어 선택">
+            <a
+                href="index-ko.html"
+                class="active"
+                data-language-page="index-ko.html"
+                aria-current="page"
+                >KR</a
+            >
+            <a href="index.html" data-language-page="index.html">EN</a>
+        </nav>
+
+        <main>
+            <section id="hero" class="ko-hero">
+                <div class="container ko-hero-grid">
+                    <div class="ko-hero-copy reveal">
+                        <nav class="ko-hero-menu" aria-label="메인 메뉴">
+                            <a href="#hero">Home</a>
+                            <a href="#about">About</a>
+                            <a href="#works">Works</a>
+                            <a href="servicesandworks.html#services">Services</a>
+                            <a href="#contact">Contact</a>
+                        </nav>
+                        <h1 class="hero-main-text">
+                            당신만의 이야기를 들려주세요.
+                        </h1>
+                        <p class="ko-hero-desc">
+                            우리는 모든 사람과 브랜드가<br />
+                            각자의 고유한 개성과 아름다운 스토리를 가지고 있다고
+                            믿습니다.<br />
+                            그 이야기는 때로는 속삭임처럼 미약하고, 때로는 숨어
+                            있어 보이지 않을 뿐입니다.<br />
+                            이미 존재하지만, 명확히 드러나지 않거나,<br />
+                            더 빛날 기회를 기다리고 있는것이지요.<br /><br />
+                            유매화 스튜디오는 그 이야기를 섬세하게 발견하고,<br />
+                            브랜딩과 디자인이라는 옷을 입혀 새로운 무대 위에
+                            올려놓습니다.
+                        </p>
                     </div>
-                </nav>
-            </div>
-        </header>
-
-        <!-- Hero -->
-        <section id="hero" class="korean-hero">
-            <div class="korean-hero-content">
-                <h1 class="hero-main-text">브랜드의 이야기를 들려주세요.</h1>
-                <div class="hero-buttons">
-                    <a href="#contact" class="korean-btn primary"
-                        >프로젝트 시작하기</a
-                    >
-                    <a href="#about" class="korean-btn">About</a>
+                    <div class="ko-hero-columns reveal" aria-label="유매화 스튜디오 주요 섹션">
+                        <a href="#works" class="ko-hero-column ko-hero-column-silver">
+                            <span class="ko-hero-column-block"></span>
+                            <figure>
+                                <img
+                                    src="images/ko-services/service-hero-gallery.png"
+                                    alt="브랜딩 작업 이미지"
+                                />
+                            </figure>
+                            <div class="ko-hero-column-label">
+                                <b>01</b>
+                                <strong>Works</strong>
+                                <em>Brand story in images</em>
+                            </div>
+                        </a>
+                        <a href="servicesandworks.html#services" class="ko-hero-column ko-hero-column-plum">
+                            <span class="ko-hero-column-block"></span>
+                            <figure>
+                                <img
+                                    src="images/ko-services/service-package-print.png"
+                                    alt="패키지와 인쇄 디자인 이미지"
+                                />
+                            </figure>
+                            <div class="ko-hero-column-label">
+                                <b>02</b>
+                                <strong>Services</strong>
+                                <em>Branding full package</em>
+                            </div>
+                        </a>
+                        <a href="#contact" class="ko-hero-column ko-hero-column-deep">
+                            <span class="ko-hero-column-block"></span>
+                            <figure>
+                                <img
+                                    src="images/ko-services/service-goods.png"
+                                    alt="굿즈 제작 이미지"
+                                />
+                            </figure>
+                            <div class="ko-hero-column-label">
+                                <b>03</b>
+                                <strong>Contact</strong>
+                                <em>Tell us your story</em>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- 배경 텍스트 -->
-            <div class="scroll-text-container">
-                <div class="scroll-text-line">YOUR BRAND,</div>
-                <div class="scroll-text-line">YOUR STORY,</div>
-                <div class="scroll-text-line">WE DESIGN,</div>
-                <div class="scroll-text-line">WE ILLUMINATE.</div>
-            </div>
-        </section>
-
-        <!-- About -->
-        <section id="about" class="korean-about">
-            <div class="about-container">
-                <div class="about-left">
-                    <h2 class="about-title">About</h2>
-                </div>
-                <div class="about-right">
-                    <div class="about-content">
+            <section id="about" class="ko-section ko-philosophy">
+                <div class="container ko-about-spread">
+                    <div class="ko-section-title reveal">
+                        <p class="ko-kicker">About</p>
+                        <h2>
+                            <span>브랜드 안에</span>
+                            <span>숨어 있는</span>
+                            <span>이야기를</span>
+                            <span>발견합니다.</span>
+                        </h2>
+                    </div>
+                    <div class="about-content reveal">
                         <p class="about-text">
                             우리는 모든 사람과 브랜드가 <br />각자의 고유한
                             개성과 아름다운 스토리를 가지고 있다고 믿습니다.<br />
@@ -82,13 +127,11 @@
                             이미 존재하지만, 명확히 드러나지 않거나,<br />
                             더 빛날 기회를 기다리고 있는것이지요.
                         </p>
-                        <br />
                         <p class="about-text">
                             유매화 스튜디오는 그 이야기를 섬세하게 발견하고,<br />
                             브랜딩과 디자인이라는 옷을 입혀 새로운 무대 위에
                             올려놓습니다.
                         </p>
-                        <br />
                         <p class="about-text">
                             우리가 만드는 것은 단순히 예쁜 옷을 만들어 입히는
                             것이 아닌<br />
@@ -97,196 +140,411 @@
                             브랜드가 자신의 무대에서 마음껏 빛날 수 있도록
                             도와드리겠습니다.
                         </p>
-                        <br />
-                        <p class="about-text about-highlight">
-                            당신의 브랜드가 빛나는 보석이 될 수 있게 아름답게
-                            세공하겠습니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Works -->
-        <section id="works" class="korean-works">
-            <div class="works-container">
-                <div class="works-header">
-                    <h2 class="works-title">WORKS</h2>
-                </div>
-                <div class="works-grid">
-                    <div class="works-item works-item-light"></div>
-                    <div class="works-item works-item-light"></div>
-                    <div class="works-item works-item-light"></div>
-                    <div class="works-item works-item-light"></div>
-                    <div class="works-item works-item-dark"></div>
-                    <div class="works-item works-item-dark"></div>
-                    <div class="works-item works-item-dark"></div>
-                    <div class="works-item works-item-dark"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services -->
-        <section id="services" class="korean-section">
-            <div class="container">
-                <h2 class="scroll-animate">Services</h2>
-                <p class="scroll-animate">
-                    브랜드는 단순히 보이는 것이 아니라, 사람들의 기억 속에 남는
-                    이야기입니다.
-                </p>
-
-                <div class="korean-grid">
-                    <div class="korean-card">
-                        <i class="ri-contrast-drop-2-line"></i>
-                        <h3>브랜드 아이덴티티</h3>
-                        <p>
-                            브랜드의 고유한 이야기를 발견해, 그 본질을 담아낸
-                            아이덴티티를 만듭니다. 단순한 로고가 아닌, 기억 속에
-                            남는 브랜드의 얼굴을 디자인합니다.
-                        </p>
-                    </div>
-
-                    <div class="korean-card">
-                        <i class="ri-window-line"></i>
-                        <h3>웹 디자인</h3>
-                        <p>
-                            브랜드의 세계관과 이야기를 담아내는 웹사이트. 단순히
-                            정보 전달이 아닌, 방문자가 머물고 싶어지는 경험을
-                            디자인합니다.
-                        </p>
-                    </div>
-
-                    <div class="korean-card">
-                        <i class="ri-palette-line"></i>
-                        <h3>그래픽 디자인</h3>
-                        <p>
-                            브랜드의 감성을 시각 언어로 풀어내는 그래픽. 포스터,
-                            콘텐츠, SNS까지 브랜드의 목소리가 일관되게
-                            전달되도록 디자인합니다.
-                        </p>
-                    </div>
-
-                    <div class="korean-card">
-                        <i class="ri-copyright-line"></i>
-                        <h3>패키지 디자인</h3>
-                        <p>
-                            제품을 감싸는 패키지는 곧 브랜드의 첫인상입니다.
-                            열어보는 순간 감동이 남는 경험을 디자인합니다.
-                        </p>
-                    </div>
-
-                    <div class="korean-card">
-                        <i class="ri-printer-line"></i>
-                        <h3>프린트 디자인</h3>
-                        <p>
-                            종이 위에 새겨진 브랜드의 인상. 명함, 브로슈어,
-                            리플렛까지 손에 닿는 디자인 경험을 만듭니다.
-                        </p>
-                    </div>
-
-                    <div class="korean-card">
-                        <i class="ri-lightbulb-line"></i>
-                        <h3>크리에이티브 컨설팅</h3>
-                        <p>
-                            브랜드의 시작과 방향을 함께 고민합니다. 전략과
-                            감성을 균형 있게 담아, 브랜드가 더 빛나는 길을
-                            제안합니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section
-            id="contact"
-            class="korean-section"
-            style="background: #f8f9fa"
-        >
-            <div class="container">
-                <h2 class="scroll-animate">당신만의 이야기를 들려주세요.</h2>
-                <p class="scroll-animate">브랜드를 변화시킬 준비가 되셨나요?</p>
-
-                <div
-                    style="max-width: 600px; margin: 0 auto; text-align: center"
-                    class="scroll-animate"
-                >
-                    <div
-                        style="
-                            background: white;
-                            padding: 40px;
-                            border-radius: 20px;
-                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                        "
-                    >
-                        <h3 style="margin-bottom: 30px; color: #333">
-                            Your Story, Your Brand, <br />We Design, We
-                            Illuminate.
-                        </h3>
-                        <div style="margin-bottom: 20px">
-                            <!--<i
-                                class="ri-map-pin-line"
-                                style="color: #667eea; margin-right: 10px"
-                            ></i>-->
-                            <span> </span>
+                        <!--
+                        <div class="ko-about-note">
+                            <span>Fine Art Based</span>
+                            <p>
+                                순수미술을 공부하며 쌓아온 색감, 조형감, 여백을 보는
+                                감각을 바탕으로 브랜드를 하나의 이미지가 아니라 오래
+                                남는 분위기와 감정의 경험으로 다룹니다.
+                            </p>
                         </div>
-                        <div style="margin-bottom: 20px">
-                            <i
-                                class="ri-mail-line"
-                                style="color: #667eea; margin-right: 10px"
-                            ></i>
-                            <span>yumehwa.studio@gmail.com</span>
+                        -->
+                    </div>
+                    <div class="ko-about-image-strip reveal" aria-label="브랜드 목업 이미지">
+                        <img
+                            src="images/ko-services/service-hero-gallery.png"
+                            alt="흰색 브랜드 목업 이미지"
+                        />
+                    </div>
+                    <p class="about-text about-highlight reveal">
+                        당신만의 고유한 이야기를 가질때<br />
+                        당신의 브랜드는 빛이 납니다.
+                    </p>
+                </div>
+            </section>
+
+            <section id="services" class="ko-section ko-services">
+                <div class="container">
+                    <div class="ko-section-head reveal">
+                        <p class="ko-kicker">Services</p>
+                        <h2>Services</h2>
+                        <p>
+                            브랜드는 보이는 모습만으로 기억되지 않습니다.
+                            마음에 남는 이야기가 함께할 때 오래 기억됩니다.
+                        </p>
+                        <a href="servicesandworks.html#services" class="korean-btn ko-section-link"
+                            >서비스 자세히 보기</a
+                        >
+                    </div>
+
+                    <div class="korean-grid">
+                        <div class="korean-card reveal">
+                            <i class="ri-contrast-drop-2-line"></i>
+                            <h3>브랜드 아이덴티티</h3>
+                            <p>
+                                브랜드의 고유한 이야기를 발견해, 그 본질을 담아낸
+                                아이덴티티를 만듭니다. 단순한 로고가 아닌, 기억
+                                속에 남는 브랜드의 얼굴을 디자인합니다.
+                            </p>
                         </div>
-                        <div style="margin-top: 30px">
+
+                        <div class="korean-card reveal">
+                            <i class="ri-window-line"></i>
+                            <h3>웹 디자인</h3>
+                            <p>
+                                브랜드의 세계관과 이야기를 담아내는 웹사이트.
+                                단순히 정보 전달이 아닌, 방문자가 머물고 싶어지는
+                                경험을 디자인합니다.
+                            </p>
+                        </div>
+
+                        <div class="korean-card reveal">
+                            <i class="ri-palette-line"></i>
+                            <h3>그래픽 디자인</h3>
+                            <p>
+                                브랜드의 감성을 시각 언어로 풀어내는 그래픽.
+                                포스터, 콘텐츠, SNS까지 브랜드의 목소리가
+                                일관되게 전달되도록 디자인합니다.
+                            </p>
+                        </div>
+
+                        <div class="korean-card reveal">
+                            <i class="ri-copyright-line"></i>
+                            <h3>패키지 디자인</h3>
+                            <p>
+                                제품을 감싸는 패키지는 곧 브랜드의 첫인상입니다.
+                                열어보는 순간 감동이 남는 경험을 디자인합니다.
+                            </p>
+                        </div>
+
+                        <div class="korean-card reveal">
+                            <i class="ri-printer-line"></i>
+                            <h3>프린트 디자인</h3>
+                            <p>
+                                종이 위에 새겨진 브랜드의 인상. 명함, 브로슈어,
+                                리플렛까지 손에 닿는 디자인 경험을 만듭니다.
+                            </p>
+                        </div>
+
+                        <div class="korean-card reveal">
+                            <i class="ri-gift-line"></i>
+                            <h3>굿즈 제작</h3>
+                            <p>
+                                고객이 오래 간직할 수 있는 브랜드의 작은 물건을
+                                기획합니다. 스티커, 엽서, 키링, 패키지 구성품까지
+                                브랜드의 분위기에 맞춰 제작으로 연결합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="works" class="ko-section ko-works-showcase">
+                <div class="container ko-works-showcase-layout">
+                    <div class="ko-works-title reveal">
+                        <h2>WORKS</h2>
+                    </div>
+
+                    <div class="ko-works-summary reveal">
+                        <p>
+                            브랜드 아이덴티티, 패키지, 인쇄물, 웹사이트, 굿즈까지
+                            브랜드 운영에 필요한 시각 작업을 제작합니다.
+                        </p>
+                        <a href="servicesandworks.html#works" class="korean-btn ko-section-link"
+                            >보러가기 →</a
+                        >
+                    </div>
+
+                    <div class="ko-premium-package reveal">
+                        <div class="ko-premium-package-head">
+                            <strong>브랜딩 풀 패키지</strong>
+                        </div>
+
+                        <div class="ko-premium-card-grid">
+                            <article class="ko-premium-card">
+                                <span>01</span>
+                                <h3>브랜드 기준 만들기</h3>
+                                <p>
+                                    로고, 컬러, 폰트, 그래픽 톤, 브랜드 무드를 정리해
+                                    브랜드의 첫인상을 만듭니다.
+                                </p>
+                            </article>
+                            <article class="ko-premium-card">
+                                <span>02</span>
+                                <h3>인쇄물과 패키지 확장</h3>
+                                <p>
+                                    명함, 메뉴판, 라벨, 포장재, 안내문, 쿠폰, 배너 등
+                                    실제 운영에 필요한 제작물로 확장합니다.
+                                </p>
+                            </article>
+                            <article class="ko-premium-card">
+                                <span>03</span>
+                                <h3>굿즈와 고객 경험</h3>
+                                <p>
+                                    키링, 엽서, 카드, 스티커팩, 패키지 구성품처럼
+                                    고객이 오래 간직할 수 있는 접점까지 연결합니다.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="ko-work-fields reveal">
+                        <span>Brand Identity</span>
+                        <span>Logo System</span>
+                        <span>Color & Typography</span>
+                        <span>Package Design</span>
+                        <span>Label Design</span>
+                        <span>Print Design</span>
+                        <span>Menu & Signage</span>
+                        <span>Poster & Banner</span>
+                        <span>Coupon & Card</span>
+                        <span>Web Design</span>
+                        <span>SNS Template</span>
+                        <span>Goods Production</span>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="ko-section-head reveal">
+                        <p class="ko-kicker">Brand Package</p>
+                        <h2>브랜딩 풀 패키지</h2>
+                        <p>
+                            로고 하나만 만드는 것이 아니라, 브랜드가 고객에게
+                            닿는 모든 접점을 함께 설계합니다.
+                        </p>
+                    </div>
+                    <div class="ko-package-grid">
+                        <article class="ko-package-card reveal">
+                            <span>01</span>
+                            <h3>브랜드 기준 만들기</h3>
+                            <p>
+                                로고, 컬러, 폰트, 그래픽 톤, 브랜드 무드를
+                                정리해 작은 브랜드의 첫인상을 만듭니다.
+                            </p>
+                        </article>
+                        <article class="ko-package-card reveal">
+                            <span>02</span>
+                            <h3>인쇄물과 패키지 확장</h3>
+                            <p>
+                                명함, 스티커, 메뉴판, 라벨, 포장재처럼 실제
+                                매장과 배송에서 필요한 디자인으로 확장합니다.
+                            </p>
+                        </article>
+                        <article class="ko-package-card reveal">
+                            <span>03</span>
+                            <h3>굿즈와 고객 경험</h3>
+                            <p>
+                                키링, 스티커팩, 엽서, 사은품처럼 고객이 오래
+                                간직할 수 있는 굿즈 경험까지 연결합니다.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ko-section ko-works ko-works-archive">
+                <div class="container">
+                    <div class="ko-section-head reveal">
+                        <p class="ko-kicker">Portfolio</p>
+                        <h2>이야기가 보이는 브랜드 작업</h2>
+                        <p>
+                            실제 포트폴리오 이미지는 이후 교체할 수 있도록, 지금은
+                            작업 방향을 보여주는 임시 목업으로 구성했습니다.
+                        </p>
+                        <a href="servicesandworks.html#works" class="korean-btn ko-section-link"
+                            >Works 자세히 보기</a
+                        >
+                    </div>
+                    <div class="ko-work-preview-grid">
+                        <article class="ko-work-preview reveal">
+                            <img
+                                src="images/ko-services/service-hero-gallery.png"
+                                alt="카페 브랜딩 방향 임시 목업"
+                            />
+                            <div>
+                                <span>Cafe Branding</span>
+                                <strong>공간의 분위기가 오래 남는 카페 브랜드</strong>
+                            </div>
+                        </article>
+                        <article class="ko-work-preview reveal">
+                            <img
+                                src="images/ko-services/service-goods.png"
+                                alt="반려동물 브랜드 굿즈 임시 목업"
+                            />
+                            <div>
+                                <span>Pet Brand Goods</span>
+                                <strong>고객이 간직하는 반려동물 브랜드 굿즈</strong>
+                            </div>
+                        </article>
+                        <article class="ko-work-preview reveal">
+                            <img
+                                src="images/ko-services/service-package-print.png"
+                                alt="제품 패키지 디자인 임시 목업"
+                            />
+                            <div>
+                                <span>Product Package</span>
+                                <strong>제품의 첫인상을 만드는 패키지와 라벨</strong>
+                            </div>
+                        </article>
+                        <article class="ko-work-preview ko-work-preview-text reveal">
+                            <span class="ko-production-list"
+                                >로고 · 명함<br />
+                                메뉴판 · 간판 · 라벨 · 패키지<br />
+                                굿즈 · 포스터 · 쿠폰 · 배너 · 안내문<br />
+                                광고 · SNS 템플릿 · 웹사이트</span
+                            >
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="ko-section ko-contact">
+                <div class="container ko-contact-grid">
+                    <div class="ko-contact-copy reveal">
+                        <h2>당신만의 이야기를 들려주세요.</h2>
+                        <p>브랜드를 변화시킬 준비가 되셨나요?</p>
+                    </div>
+                    <div class="ko-contact-card reveal">
+                        <div class="ko-contact-card-head">
+                            <h3>
+                                Your Story, Your Brand, <br />We Design, We
+                                Illuminate.
+                            </h3>
                             <a
-                                href="mailto:yumehwa.studio@gmail.com"
-                                class="korean-btn primary"
+                                href="#ko-inquiry-form"
+                                class="korean-btn primary ko-inquiry-toggle"
                                 >이메일 보내기</a
                             >
                         </div>
+                        <form
+                            id="ko-inquiry-form"
+                            class="ko-inquiry-form"
+                            action="mailto:yumehwa.studio@gmail.com"
+                            method="post"
+                            enctype="text/plain"
+                        >
+                            <div class="ko-form-row">
+                                <label for="ko-name">이름 / 브랜드명 *</label>
+                                <input
+                                    id="ko-name"
+                                    name="이름 / 브랜드명"
+                                    type="text"
+                                    required
+                                />
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-email">이메일 *</label>
+                                <input
+                                    id="ko-email"
+                                    name="이메일"
+                                    type="email"
+                                    required
+                                />
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-business">업종</label>
+                                <input
+                                    id="ko-business"
+                                    name="업종"
+                                    type="text"
+                                    placeholder="예: 카페, 반려동물, 제품 패키지"
+                                />
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-service">관심 서비스</label>
+                                <select id="ko-service" name="관심 서비스">
+                                    <option>브랜딩 풀 패키지</option>
+                                    <option>로고 / 브랜드 아이덴티티</option>
+                                    <option>패키지 / 인쇄물</option>
+                                    <option>굿즈 제작</option>
+                                    <option>웹사이트 / SNS 템플릿</option>
+                                    <option>아직 모르겠어요</option>
+                                </select>
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-budget">예산 범위</label>
+                                <select id="ko-budget" name="예산 범위">
+                                    <option>상담 후 결정</option>
+                                    <option>50만원 이하</option>
+                                    <option>100만원 이하</option>
+                                    <option>100만원 - 300만원</option>
+                                    <option>300만원 - 500만원</option>
+                                    <option>500만원 이상</option>
+                                </select>
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-schedule">희망 일정</label>
+                                <input
+                                    id="ko-schedule"
+                                    name="희망 일정"
+                                    type="text"
+                                    placeholder="예: 6월 오픈 전까지"
+                                />
+                            </div>
+                            <div class="ko-form-row ko-form-row-full">
+                                <label for="ko-message">문의 내용 *</label>
+                                <textarea
+                                    id="ko-message"
+                                    name="문의 내용"
+                                    required
+                                    placeholder="브랜드 상황, 필요한 제작물, 참고하고 싶은 분위기를 알려주세요."
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="korean-btn ko-form-submit">
+                                문의 내용 보내기
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Footer -->
         <footer class="korean-footer">
             <div class="container">
                 <div>
-                    <a href="#" class="brand"
-                        ><span class="logo-dot"></span>유매화</a
-                    >
-                    <p style="margin: 10px 0 0 0; opacity: 0.8">
-                        혁신적인 디자인 솔루션과 전략적 사고로 당신의 비전을
-                        현실로 만드는 크리에이티브 디자인 스튜디오입니다.
+                    <a href="index-ko.html" class="brand">유매화</a>
+                    <p>
+                        숨어 있던 이야기를 섬세하게 발견하고, 브랜딩과 디자인이라는
+                        옷을 입혀 새로운 무대 위에 올려놓는 스튜디오입니다.
                     </p>
+                </div>
+                <div class="ko-footer-services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="servicesandworks.html#services">Brand Identity</a></li>
+                        <li><a href="servicesandworks.html#services">Web Design</a></li>
+                        <li><a href="servicesandworks.html#services">Graphic Design</a></li>
+                        <li><a href="servicesandworks.html#services">Goods Production</a></li>
+                        <li><a href="servicesandworks.html#services">Print Design</a></li>
+                    </ul>
                 </div>
                 <div class="social">
                     <a href="https://instagram.com/von_prunov" target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
                         ><i class="ri-instagram-line"></i
                     ></a>
-                    <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+                    <a
+                        href="https://smartstore.naver.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="smartstore-link"
+                        aria-label="스마트스토어"
+                        title="스마트스토어"
+                        ><i class="ri-shopping-bag-3-line"></i
+                    ></a>
                 </div>
             </div>
             <div class="foot-bottom">
-                <div
-                    class="container"
-                    style="
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                    "
-                >
+                <div class="container">
                     <span
-                        >© 2025 유메화 스튜디오 (Lanova). All rights
+                        >© 2025 유매화 스튜디오 (Lanova). All rights
                         reserved.</span
                     >
                     <span><b>사업자등록번호:</b> 750-23-02169</span>
                 </div>
             </div>
         </footer>
+            </section>
+        </main>
 
-        <!-- Floating Top Button -->
         <button id="topBtn" class="floating-top-btn" aria-label="맨 위로 이동">
             <i class="ri-arrow-up-line"></i>
         </button>

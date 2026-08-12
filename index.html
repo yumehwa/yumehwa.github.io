@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Yumehwa Studio</title>
+        <title>YUMEHWA Studio</title>
         <meta
             name="description"
-            content="브랜드 아이덴티티, 웹/그래픽/패키지/프린트 디자인, 크리에이티브 컨설팅까지 한곳에서."
+            content="YUMEHWA Studio creates brand identities, websites, graphics, packaging, print materials, and branded goods as one coherent experience."
         />
         <link
-            href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Pretendard:wght@400;500;600;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap"
             rel="stylesheet"
         />
         <link
@@ -17,598 +17,538 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style-ko.css" />
     </head>
-    <body>
-        <!-- Header -->
-        <header class="site-header">
-            <div class="container nav-wrap">
-                <a href="#" class="brand"
-                    ><span class="logo-dot"></span>Yumehwa</a
-                >
-                <nav class="nav">
-                    <a href="#hero" data-key="nav.home">Home</a>
-                    <a href="#services" data-key="nav.about">About</a>
-                    <a
-                        href="#contact"
-                        class="btn btn-sm btn-primary"
-                        data-key="nav.contact"
-                        >Contact</a
-                    >
-                    <div class="lang-buttons">
-                        <a href="#" class="lang-btn active">English</a>
-                        <a href="index-ko.html" class="lang-btn">한국어</a>
+    <body class="korean-layout english-layout">
+        <div class="scroll-progress"></div>
+
+        <nav class="floating-language-switch" aria-label="Language selector">
+            <a href="index-ko.html" data-language-page="index-ko.html">KR</a>
+            <a
+                href="index.html"
+                class="active"
+                data-language-page="index.html"
+                aria-current="page"
+                >EN</a
+            >
+        </nav>
+
+        <main>
+            <section id="hero" class="ko-hero">
+                <div class="container ko-hero-grid">
+                    <div class="ko-hero-copy reveal">
+                        <nav class="ko-hero-menu" aria-label="Main navigation">
+                            <a href="#hero">Home</a>
+                            <a href="#about">About</a>
+                            <a href="#works">Works</a>
+                            <a href="#services">Services</a>
+                            <a href="#contact">Contact</a>
+                        </nav>
+                        <h1 class="hero-main-text">
+                            Tell us your story.
+                        </h1>
+                        <p class="ko-hero-desc">
+                            We believe every person and every brand<br />
+                            has a distinct character and a beautiful story.<br />
+                            Sometimes that story is as faint as a whisper.<br />
+                            Sometimes it is simply hidden from view.<br />
+                            It is already there, waiting for its moment to shine.<br /><br />
+                            YUMEHWA Studio carefully discovers that story,<br />
+                            dresses it in branding and design,<br />
+                            and places it on a new stage.
+                        </p>
                     </div>
-                </nav>
-            </div>
-        </header>
-
-        <!-- Hero -->
-        <section id="hero" class="hero section">
-            <div class="hero-bg">
-                <img
-                    src="images/hero_bg.png"
-                    alt="Creative design studio workspace"
-                    class="hero-image"
-                />
-            </div>
-            <div class="container hero-inner">
-                <h1 class="hero-title" data-key="hero.title">
-                    Transform Your Vision<br class="md-hide" />
-                    Into
-                    <span class="accent">Stunning Design</span>
-                </h1>
-                <p class="hero-desc" data-key="hero.desc">
-                    We're a creative design studio that brings brands to life
-                    through innovative design solutions, strategic thinking, and
-                    exceptional craftsmanship.
-                </p>
-                <div class="btn-row">
-                    <a
-                        href="#contact"
-                        class="btn btn-primary"
-                        data-key="hero.start"
-                        >Start Your Project</a
-                    >
-                    <a
-                        href="#portfolio"
-                        class="btn btn-ghost"
-                        data-key="hero.view"
-                        >View Our Work</a
-                    >
+                    <div class="ko-hero-columns reveal" aria-label="YUMEHWA Studio sections">
+                        <a href="#works" class="ko-hero-column ko-hero-column-silver">
+                            <span class="ko-hero-column-block"></span>
+                            <figure>
+                                <img
+                                    src="images/ko-services/service-hero-gallery.png"
+                                    alt="Branding project preview"
+                                />
+                            </figure>
+                            <div class="ko-hero-column-label">
+                                <b>01</b>
+                                <strong>Works</strong>
+                                <em>Brand story in images</em>
+                            </div>
+                        </a>
+                        <a href="#services" class="ko-hero-column ko-hero-column-plum">
+                            <span class="ko-hero-column-block"></span>
+                            <figure>
+                                <img
+                                    src="images/ko-services/service-package-print.png"
+                                    alt="Packaging and print design preview"
+                                />
+                            </figure>
+                            <div class="ko-hero-column-label">
+                                <b>02</b>
+                                <strong>Services</strong>
+                                <em>Branding full package</em>
+                            </div>
+                        </a>
+                        <a href="#contact" class="ko-hero-column ko-hero-column-deep">
+                            <span class="ko-hero-column-block"></span>
+                            <figure>
+                                <img
+                                    src="images/ko-services/service-goods.png"
+                                    alt="Branded goods preview"
+                                />
+                            </figure>
+                            <div class="ko-hero-column-label">
+                                <b>03</b>
+                                <strong>Contact</strong>
+                                <em>Tell us your story</em>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Services -->
-        <section id="services" class="section">
-            <div class="container">
-                <header class="section-head">
-                    <h2 data-key="services.title">Our Creative Services</h2>
-                    <p data-key="services.desc">
-                        We offer comprehensive design solutions to help your
-                        brand stand out. From concept to completion, we're your
-                        creative partners.
+            <section id="about" class="ko-section ko-philosophy">
+                <div class="container ko-about-spread">
+                    <div class="ko-section-title reveal">
+                        <p class="ko-kicker">About</p>
+                        <h2>
+                            <span>WE FIND</span>
+                            <span>THE STORIES</span>
+                            <span>HIDDEN IN</span>
+                            <span>YOUR BRAND.</span>
+                        </h2>
+                    </div>
+                    <div class="about-content reveal">
+                        <p class="about-text">
+                            We believe every person and every brand has a
+                            distinct character and a beautiful story.<br />
+                            Sometimes that story is as faint as a whisper.<br />
+                            Sometimes it is simply hidden from view.<br />
+                            It is already there, waiting for its moment to
+                            shine.
+                        </p>
+                        <p class="about-text">
+                            YUMEHWA Studio carefully discovers that story,<br />
+                            dresses it in branding and design, and places it on
+                            a new stage.
+                        </p>
+                        <p class="about-text">
+                            Our work goes beyond making something simply look
+                            beautiful.<br />
+                            We shape warm experiences and emotions that stay in
+                            people's memories,<br />
+                            helping each brand shine fully on its own stage.
+                        </p>
+                        <!--
+                        <div class="ko-about-note">
+                            <span>Fine Art Based</span>
+                            <p>
+                                A fine-art background informs our sensitivity
+                                to color, form, and negative space, allowing us
+                                to shape a brand as a lasting atmosphere and
+                                emotional experience rather than a single image.
+                            </p>
+                        </div>
+                        -->
+                    </div>
+                    <div class="ko-about-image-strip reveal" aria-label="Brand mockup image">
+                        <img
+                            src="images/ko-services/service-hero-gallery.png"
+                            alt="White brand identity mockup"
+                        />
+                    </div>
+                    <p class="about-text about-highlight reveal">
+                        Your brand shines<br />
+                        when it carries a story that is uniquely yours.
                     </p>
-                </header>
+                </div>
+            </section>
 
-                <div class="card-grid">
-                    <article class="card">
-                        <img
-                            src="images/services/brand-identity.jpg"
-                            alt="brand identity"
-                            loading="lazy"
-                        />
-                        <div class="card-body">
-                            <div class="card-icon">
-                                <i class="ri-contrast-drop-2-line"></i>
-                            </div>
-                            <h3 data-key="services.brand">Brand Identity</h3>
-                            <p data-key="services.brand.desc">
-                                Create memorable brand identities that capture
-                                your essence and connect with your audience
-                                through strategic design thinking.
+            <section id="services" class="ko-section ko-services">
+                <div class="container">
+                    <div class="ko-section-head reveal">
+                        <p class="ko-kicker">Services</p>
+                        <h2>Services</h2>
+                        <p>
+                            A brand is remembered for more than how it looks.
+                            It lasts when its story stays with people.
+                        </p>
+                    </div>
+
+                    <div class="korean-grid">
+                        <div class="korean-card reveal">
+                            <i class="ri-contrast-drop-2-line"></i>
+                            <h3>Brand Identity</h3>
+                            <p>
+                                We uncover the brand's distinct story and build
+                                an identity around its essence. More than a
+                                logo, we design a memorable face for the brand.
                             </p>
                         </div>
-                    </article>
 
-                    <article class="card">
-                        <img
-                            src="images/services/web-design.jpg"
-                            alt="web design"
-                            loading="lazy"
-                        />
-                        <div class="card-body">
-                            <div class="card-icon">
-                                <i class="ri-window-line"></i>
-                            </div>
-                            <h3 data-key="services.web">Web Design</h3>
-                            <p data-key="services.web.desc">
-                                Design beautiful, responsive websites that
-                                deliver exceptional user experiences and drive
-                                business results.
+                        <div class="korean-card reveal">
+                            <i class="ri-window-line"></i>
+                            <h3>Web Design</h3>
+                            <p>
+                                We create websites that express a brand's world
+                                and story, shaping an experience visitors want
+                                to stay with rather than simply delivering
+                                information.
                             </p>
                         </div>
-                    </article>
 
-                    <article class="card">
-                        <img
-                            src="images/services/graphic-design.jpg"
-                            alt="graphic design"
-                            loading="lazy"
-                        />
-                        <div class="card-body">
-                            <div class="card-icon">
-                                <i class="ri-palette-line"></i>
-                            </div>
-                            <h3 data-key="services.graphic">Graphic Design</h3>
-                            <p data-key="services.graphic.desc">
-                                From marketing materials to digital graphics, we
-                                create compelling designs that communicate your
-                                message effectively.
+                        <div class="korean-card reveal">
+                            <i class="ri-palette-line"></i>
+                            <h3>Graphic Design</h3>
+                            <p>
+                                We translate a brand's sensibility into a visual
+                                language, keeping its voice consistent across
+                                posters, content, and social media.
                             </p>
                         </div>
-                    </article>
 
-                    <article class="card">
-                        <img
-                            src="images/services/package-design.jpg"
-                            alt="package design"
-                            loading="lazy"
-                        />
-                        <div class="card-body">
-                            <div class="card-icon">
-                                <i class="ri-copyright-line"></i>
-                            </div>
-                            <h3 data-key="services.package">Package Design</h3>
-                            <p data-key="services.package.desc">
-                                Creative packaging solutions that protect your
-                                products while creating memorable unboxing
-                                experiences.
+                        <div class="korean-card reveal">
+                            <i class="ri-copyright-line"></i>
+                            <h3>Package Design</h3>
+                            <p>
+                                Packaging is often the first impression of a
+                                brand. We design an opening experience that
+                                leaves a lasting feeling.
                             </p>
                         </div>
-                    </article>
 
-                    <article class="card">
-                        <img
-                            src="images/services/print-design.jpg"
-                            alt="print design"
-                            loading="lazy"
-                        />
-                        <div class="card-body">
-                            <div class="card-icon">
-                                <i class="ri-printer-line"></i>
-                            </div>
-                            <h3 data-key="services.print">Print Design</h3>
-                            <p data-key="services.print.desc">
-                                Professional print design services for business
-                                cards, brochures, packaging, and all your
-                                marketing materials.
+                        <div class="korean-card reveal">
+                            <i class="ri-printer-line"></i>
+                            <h3>Print Design</h3>
+                            <p>
+                                We carry the brand's impression onto paper,
+                                creating tactile experiences from business
+                                cards to brochures and leaflets.
                             </p>
                         </div>
-                    </article>
 
-                    <article class="card">
-                        <img
-                            src="images/services/creative-consulting.jpg"
-                            alt="creative consulting"
-                            loading="lazy"
-                        />
-                        <div class="card-body">
-                            <div class="card-icon">
-                                <i class="ri-lightbulb-line"></i>
+                        <div class="korean-card reveal">
+                            <i class="ri-gift-line"></i>
+                            <h3>Goods Production</h3>
+                            <p>
+                                We plan small branded objects people will want
+                                to keep, connecting stickers, postcards,
+                                keyrings, and package inserts to production.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="works" class="ko-section ko-works-showcase">
+                <div class="container ko-works-showcase-layout">
+                    <div class="ko-works-title reveal">
+                        <h2>WORKS</h2>
+                    </div>
+
+                    <div class="ko-works-summary reveal">
+                        <p>
+                            We create the visual work a brand needs to operate,
+                            from identity and packaging to print, websites, and
+                            branded goods.
+                        </p>
+                    </div>
+
+                    <div class="ko-premium-package reveal">
+                        <div class="ko-premium-package-head">
+                            <strong>Branding Full Package</strong>
+                        </div>
+
+                        <div class="ko-premium-card-grid">
+                            <article class="ko-premium-card">
+                                <span>01</span>
+                                <h3>Build the Brand Foundation</h3>
+                                <p>
+                                    We define the logo, color, typography,
+                                    graphic tone, and brand mood to shape a
+                                    consistent first impression.
+                                </p>
+                            </article>
+                            <article class="ko-premium-card">
+                                <span>02</span>
+                                <h3>Extend into Print & Packaging</h3>
+                                <p>
+                                    We extend the identity into business cards,
+                                    menus, labels, packaging, guides, coupons,
+                                    banners, and other operational materials.
+                                </p>
+                            </article>
+                            <article class="ko-premium-card">
+                                <span>03</span>
+                                <h3>Goods & Customer Experience</h3>
+                                <p>
+                                    We connect the brand to lasting touchpoints
+                                    such as keyrings, postcards, cards, sticker
+                                    packs, and package inserts.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="ko-work-fields reveal">
+                        <span>Brand Identity</span>
+                        <span>Logo System</span>
+                        <span>Color & Typography</span>
+                        <span>Package Design</span>
+                        <span>Label Design</span>
+                        <span>Print Design</span>
+                        <span>Menu & Signage</span>
+                        <span>Poster & Banner</span>
+                        <span>Coupon & Card</span>
+                        <span>Web Design</span>
+                        <span>SNS Template</span>
+                        <span>Goods Production</span>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="ko-section-head reveal">
+                        <p class="ko-kicker">Brand Package</p>
+                        <h2>Branding Full Package</h2>
+                        <p>
+                            We design every customer touchpoint together, not
+                            just a single logo.
+                        </p>
+                    </div>
+                    <div class="ko-package-grid">
+                        <article class="ko-package-card reveal">
+                            <span>01</span>
+                            <h3>Build the Brand Foundation</h3>
+                            <p>
+                                We define the logo, color, typography, graphic
+                                tone, and mood that form the brand's first
+                                impression.
+                            </p>
+                        </article>
+                        <article class="ko-package-card reveal">
+                            <span>02</span>
+                            <h3>Extend into Print & Packaging</h3>
+                            <p>
+                                We extend the identity into business cards,
+                                stickers, menus, labels, and packaging used in
+                                stores and deliveries.
+                            </p>
+                        </article>
+                        <article class="ko-package-card reveal">
+                            <span>03</span>
+                            <h3>Goods & Customer Experience</h3>
+                            <p>
+                                We create goods people want to keep, from
+                                keyrings and sticker packs to postcards and
+                                complimentary gifts.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ko-section ko-works ko-works-archive">
+                <div class="container">
+                    <div class="ko-section-head reveal">
+                        <p class="ko-kicker">Portfolio</p>
+                        <h2>Brand Work with a Story to See</h2>
+                        <p>
+                            These temporary mockups present the direction of
+                            the work and can be replaced with final portfolio
+                            imagery later.
+                        </p>
+                    </div>
+                    <div class="ko-work-preview-grid">
+                        <article class="ko-work-preview reveal">
+                            <img
+                                src="images/ko-services/service-hero-gallery.png"
+                                alt="Cafe branding direction mockup"
+                            />
+                            <div>
+                                <span>Cafe Branding</span>
+                                <strong>A cafe brand whose atmosphere lingers</strong>
                             </div>
-                            <h3 data-key="services.consulting">
-                                Creative Consulting
+                        </article>
+                        <article class="ko-work-preview reveal">
+                            <img
+                                src="images/ko-services/service-goods.png"
+                                alt="Pet brand goods mockup"
+                            />
+                            <div>
+                                <span>Pet Brand Goods</span>
+                                <strong>Pet brand goods customers want to keep</strong>
+                            </div>
+                        </article>
+                        <article class="ko-work-preview reveal">
+                            <img
+                                src="images/ko-services/service-package-print.png"
+                                alt="Product package design mockup"
+                            />
+                            <div>
+                                <span>Product Package</span>
+                                <strong>Packaging and labels that shape a first impression</strong>
+                            </div>
+                        </article>
+                        <article class="ko-work-preview ko-work-preview-text reveal">
+                            <span class="ko-production-list"
+                                >Logo · Business Card<br />
+                                Menu · Signage · Label · Package<br />
+                                Goods · Poster · Coupon · Banner · Guide<br />
+                                Advertising · SNS Template · Website</span
+                            >
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="ko-section ko-contact">
+                <div class="container ko-contact-grid">
+                    <div class="ko-contact-copy reveal">
+                        <h2>Tell us your story.</h2>
+                        <p>Are you ready to transform your brand?</p>
+                    </div>
+                    <div class="ko-contact-card reveal">
+                        <div class="ko-contact-card-head">
+                            <h3>
+                                Your Story, Your Brand, <br />We Design, We
+                                Illuminate.
                             </h3>
-                            <p data-key="services.consulting.desc">
-                                Strategic creative guidance to help you make
-                                informed design decisions and achieve your
-                                goals.
-                            </p>
+                            <a
+                                href="#ko-inquiry-form"
+                                class="korean-btn primary ko-inquiry-toggle"
+                                >Send an Email</a
+                            >
                         </div>
-                    </article>
+                        <form
+                            id="ko-inquiry-form"
+                            class="ko-inquiry-form"
+                            action="mailto:yumehwa.studio@gmail.com"
+                            method="post"
+                            enctype="text/plain"
+                        >
+                            <div class="ko-form-row">
+                                <label for="ko-name">Name / Brand Name *</label>
+                                <input
+                                    id="ko-name"
+                                    name="Name / Brand Name"
+                                    type="text"
+                                    required
+                                />
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-email">Email *</label>
+                                <input
+                                    id="ko-email"
+                                    name="Email"
+                                    type="email"
+                                    required
+                                />
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-business">Business Type</label>
+                                <input
+                                    id="ko-business"
+                                    name="Business Type"
+                                    type="text"
+                                    placeholder="e.g. Cafe, pet brand, product packaging"
+                                />
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-service">Service of Interest</label>
+                                <select id="ko-service" name="Service of Interest">
+                                    <option>Branding Full Package</option>
+                                    <option>Logo / Brand Identity</option>
+                                    <option>Packaging / Print</option>
+                                    <option>Goods Production</option>
+                                    <option>Website / SNS Template</option>
+                                    <option>Not Sure Yet</option>
+                                </select>
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-budget">Budget Range</label>
+                                <select id="ko-budget" name="Budget Range">
+                                    <option>Decide After Consultation</option>
+                                    <option>Under KRW 500,000</option>
+                                    <option>Under KRW 1,000,000</option>
+                                    <option>KRW 1,000,000 - 3,000,000</option>
+                                    <option>KRW 3,000,000 - 5,000,000</option>
+                                    <option>KRW 5,000,000+</option>
+                                </select>
+                            </div>
+                            <div class="ko-form-row">
+                                <label for="ko-schedule">Preferred Schedule</label>
+                                <input
+                                    id="ko-schedule"
+                                    name="Preferred Schedule"
+                                    type="text"
+                                    placeholder="e.g. Before a June launch"
+                                />
+                            </div>
+                            <div class="ko-form-row ko-form-row-full">
+                                <label for="ko-message">Project Details *</label>
+                                <textarea
+                                    id="ko-message"
+                                    name="Project Details"
+                                    required
+                                    placeholder="Tell us about your brand, the deliverables you need, and the visual mood you have in mind."
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="korean-btn ko-form-submit">
+                                Send Inquiry
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Portfolio -->
-        <section id="portfolio" class="section">
+        <footer class="korean-footer">
             <div class="container">
-                <header class="section-head">
-                    <h2 data-key="portfolio.title">Our Creative Portfolio</h2>
-                    <p data-key="portfolio.desc">
-                        Explore our latest projects and see how we've helped
-                        brands transform their vision into stunning visual
-                        experiences.
-                    </p>
-                </header>
-
-                <div class="filter-pills" role="tablist">
-                    <button
-                        class="pill is-active"
-                        data-filter="all"
-                        aria-selected="true"
-                        data-key="portfolio.all"
-                    >
-                        All
-                    </button>
-                    <button
-                        class="pill"
-                        data-filter="branding"
-                        data-key="portfolio.branding"
-                    >
-                        Branding
-                    </button>
-                    <button
-                        class="pill"
-                        data-filter="web"
-                        data-key="portfolio.web"
-                    >
-                        Web Design
-                    </button>
-                    <button
-                        class="pill"
-                        data-filter="print"
-                        data-key="portfolio.print"
-                    >
-                        Print
-                    </button>
-                </div>
-
-                <div class="portfolio-grid">
-                    <a
-                        class="tile"
-                        data-cat="branding"
-                        href="#"
-                        aria-label="project"
-                    >
-                        <img
-                            src="images/portfolio/branding001.jpg"
-                            alt="branding001"
-                        />
-                    </a>
-                    <a class="tile" data-cat="web" href="#">
-                        <img src="images/portfolio/web001.jpg" alt="web001" />
-                    </a>
-                    <a class="tile" data-cat="print" href="#">
-                        <img
-                            src="images/portfolio/print001.jpg"
-                            alt="print001"
-                        />
-                    </a>
-                    <a class="tile" data-cat="branding" href="#">
-                        <img
-                            src="images/portfolio/branding002.jpg"
-                            alt="branding002"
-                        />
-                    </a>
-                    <a class="tile" data-cat="web" href="#">
-                        <img src="images/portfolio/web002.jpg" alt="web002" />
-                    </a>
-                    <a class="tile" data-cat="branding" href="#">
-                        <img
-                            src="images/portfolio/branding003.jpg"
-                            alt="branding003"
-                        />
-                    </a>
-                    <a class="tile" data-cat="web" href="#">
-                        <img src="images/portfolio/web003.jpg" alt="web003" />
-                    </a>
-                    <a class="tile" data-cat="print" href="#">
-                        <img
-                            src="images/portfolio/print002.jpg"
-                            alt="print002"
-                        />
-                    </a>
-                    <a class="tile" data-cat="print" href="#">
-                        <img
-                            src="images/portfolio/print003.jpg"
-                            alt="print003"
-                        />
-                    </a>
-                </div>
-
-                <div class="center mt-32">
-                    <a
-                        href="#"
-                        class="btn btn-primary"
-                        data-key="portfolio.viewAll"
-                        >View All Projects</a
-                    >
-                </div>
-            </div>
-        </section>
-
-        <!-- About Split -->
-        <section class="section split">
-            <div class="container split-grid">
-                <div class="split-text">
-                    <h2 data-key="about.title">
-                        Crafting Exceptional Design Experiences
-                    </h2>
-                    <p data-key="about.desc1">
-                        We're a passionate studio of designers, strategists, and
-                        creative thinkers dedicated to bringing your brand's
-                        story to life through innovative design solutions.
-                    </p>
-                    <p data-key="about.desc2">
-                        Our approach combines strategic thinking with creative
-                        excellence, ensuring every project not only looks
-                        stunning but also achieves your business objectives.
-                    </p>
-                    <div class="btn-row">
-                        <a
-                            href="#contact"
-                            class="btn btn-primary"
-                            data-key="about.work"
-                            >Work With Us</a
-                        >
-                        <a
-                            href="#services"
-                            class="btn btn-ghost"
-                            data-key="about.learn"
-                            >Learn More</a
-                        >
-                    </div>
-                </div>
-                <div class="split-media">
-                    <img
-                        src="images/about/crafting_exceptional_design_experiences.jpg"
-                        alt="team working"
-                    />
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="section testimonials">
-            <div class="container">
-                <header class="section-head">
-                    <h2>What Our Clients Say</h2>
+                <div>
+                    <a href="index.html" class="brand">YUMEHWA</a>
                     <p>
-                        Don't just take our word for it. Here's what our clients
-                        have to say about working with us.
+                        We carefully uncover hidden stories and place them on a
+                        new stage through branding and design.
                     </p>
-                </header>
-
-                <div class="slider" aria-roledescription="carousel">
-                    <button class="slider-nav prev" aria-label="이전 후기">
-                        <i class="ri-arrow-left-s-line"></i>
-                    </button>
-                    <div class="slides">
-                        <figure class="slide is-active">
-                            <div class="stars" aria-hidden="true">★★★★★</div>
-                            <blockquote>
-                                "The team transformed our brand completely.
-                                Their strategic approach and creative excellence
-                                exceeded all expectations."
-                            </blockquote>
-                            <figcaption>
-                                <img
-                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
-                                    alt="client"
-                                />
-                                <div>
-                                    <strong>D***</strong>
-                                    <span>CEO, *** Inc.</span>
-                                </div>
-                            </figcaption>
-                        </figure>
-
-                        <figure class="slide">
-                            <div class="stars">★★★★★</div>
-                            <blockquote>
-                                "Our new brand identity significantly improved
-                                our market presence. The process was
-                                collaborative and inspiring."
-                            </blockquote>
-                            <figcaption>
-                                <img
-                                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
-                                    alt="client"
-                                />
-                                <div>
-                                    <strong>E***</strong>
-                                    <span>***</span>
-                                </div>
-                            </figcaption>
-                        </figure>
-
-                        <figure class="slide">
-                            <div class="stars">★★★★★</div>
-                            <blockquote>
-                                "From web to print, everything felt cohesive and
-                                premium. We loved the attention to detail."
-                            </blockquote>
-                            <figcaption>
-                                <img
-                                    src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=200&auto=format&fit=crop"
-                                    alt="client"
-                                />
-                                <div>
-                                    <strong>H***</strong>
-                                    <span>Founder, *** Lab</span>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <button class="slider-nav next" aria-label="다음 후기">
-                        <i class="ri-arrow-right-s-line"></i>
-                    </button>
-                    <div
-                        class="dots"
-                        role="tablist"
-                        aria-label="testimonial pagination"
-                    >
-                        <button
-                            class="dot is-active"
-                            aria-label="1번 후기"
-                        ></button>
-                        <button class="dot" aria-label="2번 후기"></button>
-                        <button class="dot" aria-label="3번 후기"></button>
-                    </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="section contact">
-            <div class="container contact-grid">
-                <div class="contact-info">
-                    <h2>Let's Create Something Amazing Together</h2>
-                    <p>
-                        Ready to transform your brand? Get in touch and let's
-                        discuss how we can bring your vision to life.
-                    </p>
-                    <ul class="list">
-                        <li>
-                            <i class="ri-map-pin-line"> </i>
-                            Seoul, Republic of Korea
-                        </li>
-                        <!-- <li><i class="ri-phone-line"></i> +82 (010)-</li> -->
-                        <li>
-                            <i class="ri-mail-line"></i>
-                            yumehwa.studio@gmail.com
-                        </li>
-                        <li>
-                            <!-- <i class="ri-time-line"></i> Mon–Fri: 10:00–18:00 / -->
-                        </li>
-                    </ul>
-                    <div class="social">
-                        <a
-                            aria-label="instagram"
-                            href="https://instagram.com/von_prunov"
-                            target="_blank"
-                            ><i class="ri-instagram-line"></i
-                        ></a>
-                        <a aria-label="linkedin" href="#"
-                            ><i class="ri-linkedin-box-fill"></i
-                        ></a>
-                    </div>
-                </div>
-
-                <form
-                    class="contact-form"
-                    onsubmit="event.preventDefault(); alert('준비중입니다.');"
-                >
-                    <div class="form-row">
-                        <label>Full Name *</label>
-                        <input
-                            type="text"
-                            placeholder="Your full name"
-                            required
-                        />
-                    </div>
-                    <div class="form-row">
-                        <label>Email Address *</label>
-                        <input
-                            type="email"
-                            placeholder="your@email.com"
-                            required
-                        />
-                    </div>
-                    <div class="form-row">
-                        <label>Company Name</label>
-                        <input type="text" placeholder="Your company name" />
-                    </div>
-                    <div class="form-row">
-                        <label>Service Interested In</label>
-                        <select>
-                            <option>Brand Identity</option>
-                            <option>Web Design</option>
-                            <option>Graphic Design</option>
-                            <option>Package Design</option>
-                            <option>Print Design</option>
-                            <option>Creative Consulting</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <label>Project Details *</label>
-                        <textarea
-                            placeholder="Tell us about your project, goals, and timeline..."
-                            maxlength="500"
-                            required
-                        ></textarea>
-                        <small class="hint"
-                            ><span id="charCount">0</span>/500</small
-                        >
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        Send Message
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="container footer-grid">
-                <div class="foot-col">
-                    <a href="#" class="brand"
-                        ><span class="logo-dot"></span>Yumehwa</a
-                    >
-                    <p>
-                        We’re a creative design studio passionate about bringing
-                        your vision to life through innovative design solutions
-                        and strategic thinking.
-                    </p>
-                    <div class="social">
-                        <a
-                            href="https://instagram.com/von_prunov"
-                            target="_blank"
-                            ><i class="ri-instagram-line"></i
-                        ></a>
-                        <a href="#"><i class="ri-linkedin-box-fill"></i></a>
-                    </div>
-                </div>
-                <div class="foot-col">
+                <div class="ko-footer-services">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="#services">Brand Identity</a></li>
                         <li><a href="#services">Web Design</a></li>
                         <li><a href="#services">Graphic Design</a></li>
-                        <li><a href="#services">UI/UX Design</a></li>
+                        <li><a href="#services">Goods Production</a></li>
                         <li><a href="#services">Print Design</a></li>
                     </ul>
                 </div>
-                <div class="foot-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>
-                            <i class="ri-mail-line"></i>
-                            yumehwa.studio@gmail.com
-                        </li>
-                        <!-- <li><i class="ri-phone-line"></i> +82 (10) 123-4567</li> -->
-                        <li>
-                            <i class="ri-map-pin-line"></i> Seoul, Republic of
-                            Korea
-                        </li>
-                    </ul>
+                <div class="social">
+                    <a href="https://instagram.com/von_prunov" target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                        ><i class="ri-instagram-line"></i
+                    ></a>
+                    <a
+                        href="https://smartstore.naver.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="smartstore-link"
+                        aria-label="Naver Smart Store"
+                        title="Naver Smart Store"
+                        ><i class="ri-shopping-bag-3-line"></i
+                    ></a>
                 </div>
             </div>
             <div class="foot-bottom">
-                <div
-                    class="container"
-                    style="
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                    "
-                >
+                <div class="container">
                     <span
-                        >© 2025 Yumehwa Studio (Lanova). All rights
+                        >© 2025 YUMEHWA Studio (Lanova). All rights
                         reserved.</span
                     >
-                    <span><b>사업자등록번호:</b> 750-23-02169</span>
+                    <span><b>Business Registration No.</b> 750-23-02169</span>
                 </div>
             </div>
         </footer>
+            </section>
+        </main>
 
-        <!-- Floating Top Button -->
-        <button id="topBtn" class="floating-top-btn" aria-label="맨 위로 이동">
+        <button id="topBtn" class="floating-top-btn" aria-label="Back to top">
             <i class="ri-arrow-up-line"></i>
         </button>
 
-        <script src="script.js"></script>
+        <script src="script-ko.js"></script>
     </body>
 </html>

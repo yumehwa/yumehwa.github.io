@@ -1,0 +1,29 @@
+:root {
+    color-scheme: light;
+    background: #ffffff;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: auto;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #ffffff;
+}
+
+main {
+    width: 100%;
+}
+
+.blank-section {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    background: #ffffff;
+}

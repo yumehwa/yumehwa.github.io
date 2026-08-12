@@ -1,255 +1,381 @@
-// 한글 페이지 전용 JavaScript
-
-document.addEventListener("DOMContentLoaded", function () {
-    // 스크롤 진행 표시기
+document.addEventListener("DOMContentLoaded", () => {
     const scrollProgress = document.querySelector(".scroll-progress");
+    const revealTargets = document.querySelectorAll(".reveal");
+    const hero = document.querySelector(".ko-hero");
+    const languageLinks = document.querySelectorAll("[data-language-page]");
+    let heroIntroCanReplay = false;
+    let heroIntroTimer;
 
-    // 스크롤 애니메이션을 위한 Intersection Observer
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-    };
+    languageLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const targetPage = link.dataset.languagePage;
+            if (!targetPage) return;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
+            event.preventDefault();
+            const targetHash = window.location.hash || "#hero";
+            window.location.href = `${targetPage}${targetHash}`;
+        });
+    });
+
+    function playHeroIntro() {
+        if (!hero || reduceMotion.matches) return;
+
+        clearTimeout(heroIntroTimer);
+        hero.classList.remove("play-hero-intro");
+        void hero.offsetWidth;
+        hero.classList.add("play-hero-intro");
+
+        heroIntroTimer = window.setTimeout(() => {
+            hero.classList.remove("play-hero-intro");
+        }, 2100);
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
                 entry.target.classList.add("animate");
-            }
-        });
-    }, observerOptions);
-
-    // 애니메이션할 요소들 관찰 시작
-    const animateElements = document.querySelectorAll(
-        ".scroll-animate, .about-title, .about-content, .korean-card, .works-title"
-    );
-    animateElements.forEach((el, index) => {
-        // 각 요소에 지연 시간 추가
-        el.style.transitionDelay = `${index * 0.1}s`;
-        observer.observe(el);
-    });
-
-    // About 섹션 특별 애니메이션
-    const aboutTitle = document.querySelector(".about-title");
-    const aboutContent = document.querySelector(".about-content");
-
-    if (aboutTitle && aboutContent) {
-        const aboutObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        aboutTitle.classList.add("animate");
-                        setTimeout(() => {
-                            aboutContent.classList.add("animate");
-                        }, 300);
-                    }
-                });
-            },
-            { threshold: 0.3 }
-        );
-
-        aboutObserver.observe(aboutTitle);
-    }
-
-    // 스크롤 진행률 업데이트
-    function updateScrollProgress() {
-        const scrollTop = window.pageYOffset;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        scrollProgress.style.width = scrollPercent + "%";
-    }
-
-    // 스크롤 이벤트 리스너
-    let ticking = false;
-    function onScroll() {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                updateScrollProgress();
-                updateParallax();
-                ticking = false;
+                observer.unobserve(entry.target);
             });
-            ticking = true;
-        }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    revealTargets.forEach((target) => observer.observe(target));
+
+    function updateScrollProgress() {
+        if (!scrollProgress) return;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+        scrollProgress.style.width = `${scrollPercent}%`;
     }
 
-    // 패럴랙스 효과
-    function updateParallax() {
-        const scrolled = window.pageYOffset;
-        const scrollTextLines = document.querySelectorAll(".scroll-text-line");
+    const floatVisuals = document.querySelectorAll(".ko-float-visual");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const pageSections = Array.from(document.querySelectorAll("main > section[id]"));
+    const initialHash = window.location.hash;
+    let sectionSnapTimer;
+    let sectionSnapActive = false;
+    let sectionHashLocked = Boolean(initialHash);
 
-        scrollTextLines.forEach((line, index) => {
-            const speed = 0.5 + index * 0.1;
-            const yPos = -(scrolled * speed);
-            line.style.transform = `translateX(0) translateY(${yPos}px)`;
+    function updateFloatVisuals() {
+        if (!floatVisuals.length || reduceMotion.matches) return;
+
+        floatVisuals.forEach((visual) => {
+            const rect = visual.getBoundingClientRect();
+            const visualCenter = rect.top + rect.height / 2;
+            const viewportCenter = window.innerHeight / 2;
+            const distance = (visualCenter - viewportCenter) / window.innerHeight;
+            const strength = Number(visual.dataset.float || 0.1);
+            const offset = Math.max(-1, Math.min(1, distance)) * strength * -90;
+            visual.style.setProperty("--float-y", `${offset.toFixed(2)}px`);
         });
     }
 
-    // 마우스 움직임 효과
-    document.addEventListener("mousemove", (e) => {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
+    function snapToSection(section) {
+        if (!section) return;
 
-        // 카드들에 마우스 움직임 반영
-        const cards = document.querySelectorAll(".korean-card");
-        cards.forEach((card, index) => {
-            const speed = (index + 1) * 0.02;
-            const x = (mouseX - 0.5) * speed * 20;
-            const y = (mouseY - 0.5) * speed * 20;
+        sectionSnapActive = true;
+        scrollToSectionStart(section, "smooth");
+        window.history.replaceState(null, "", `#${section.id}`);
+        window.setTimeout(() => {
+            sectionSnapActive = false;
+        }, 720);
+    }
 
-            if (card.classList.contains("animate")) {
-                card.style.transform = `translateY(0) translateX(${x}px) translateY(${y}px)`;
+    function scrollToSectionStart(section, behavior = "smooth") {
+        if (!section) return;
+
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: Math.round(sectionTop), behavior });
+    }
+
+    function getNearestSectionIndex() {
+        if (pageSections.length === 0) return -1;
+
+        return pageSections
+            .map((section, index) => ({
+                index,
+                distance: Math.abs(section.getBoundingClientRect().top),
+            }))
+            .sort((a, b) => a.distance - b.distance)[0].index;
+    }
+
+    function scheduleSectionSnap() {
+        if (reduceMotion.matches || window.innerWidth <= 720 || sectionSnapActive || pageSections.length === 0) return;
+
+        window.clearTimeout(sectionSnapTimer);
+        sectionSnapTimer = window.setTimeout(() => {
+            const index = getNearestSectionIndex();
+            if (index < 0) return;
+
+            const distance = Math.abs(pageSections[index].getBoundingClientRect().top);
+            if (distance < 2 || distance > window.innerHeight * 0.42) return;
+
+            snapToSection(pageSections[index]);
+        }, 150);
+    }
+
+    function updateSectionHash() {
+        if (sectionHashLocked) return;
+        if (pageSections.length === 0) return;
+
+        const current = pageSections.find((section) => Math.abs(section.getBoundingClientRect().top) < 4);
+        if (!current || window.location.hash === `#${current.id}`) return;
+
+        window.history.replaceState(null, "", `#${current.id}`);
+    }
+
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+        if (ticking) return;
+        requestAnimationFrame(() => {
+            updateScrollProgress();
+            updateFloatVisuals();
+            scheduleSectionSnap();
+            updateSectionHash();
+
+            if (window.scrollY > 180) {
+                heroIntroCanReplay = true;
             }
+
+            if (heroIntroCanReplay && window.scrollY <= 8) {
+                heroIntroCanReplay = false;
+                playHeroIntro();
+            }
+
+            ticking = false;
+        });
+        ticking = true;
+    });
+
+    updateScrollProgress();
+    updateFloatVisuals();
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const targetId = link.getAttribute("href");
+            if (!targetId || targetId === "#") return;
+
+            const target = document.querySelector(targetId);
+            if (!target) return;
+
+            event.preventDefault();
+            scrollToSectionStart(target, "smooth");
+            window.history.pushState(null, "", targetId);
+
+            if (targetId === "#hero") {
+                window.setTimeout(playHeroIntro, 520);
+            }
+
         });
     });
 
-    window.addEventListener("scroll", onScroll);
-
-    // 부드러운 스크롤 (기본 script.js의 기능)
-    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-    smoothScrollLinks.forEach((link) => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href");
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                });
-            }
-        });
-    });
-
-    // 상단으로 이동 버튼
     const topBtn = document.getElementById("topBtn");
     if (topBtn) {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                topBtn.style.opacity = "1";
-                topBtn.style.visibility = "visible";
-            } else {
-                topBtn.style.opacity = "0";
-                topBtn.style.visibility = "hidden";
-            }
+            topBtn.classList.toggle("show", window.scrollY > 300);
         });
 
         topBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            window.setTimeout(playHeroIntro, 520);
         });
     }
 
-    // 카드 호버 효과 (CSS로 처리됨)
-    const cards = document.querySelectorAll(".korean-card");
-    cards.forEach((card, index) => {
-        // 카드에 지연 애니메이션 적용
-        card.style.transitionDelay = `${index * 0.1}s`;
-    });
+    const inquiryToggle = document.querySelector(".ko-inquiry-toggle");
+    const inquiryForm = document.getElementById("ko-inquiry-form");
+    const contactCard = document.querySelector(".ko-contact-card");
+    const aboutSection = document.querySelector(".ko-philosophy");
+    const aboutStrip = document.querySelector(".ko-about-image-strip");
+    const aboutHighlight = document.querySelector(".ko-about-spread .about-highlight");
+    const servicesSection = document.querySelector(".ko-services");
+    const worksSection = document.querySelector(".ko-works-showcase");
+    const contactSection = document.querySelector(".ko-contact");
 
-    // 버튼 클릭 효과
-    const buttons = document.querySelectorAll(".korean-btn");
-    buttons.forEach((button) => {
-        button.addEventListener("click", function (e) {
-            // 리플 효과 생성
-            const ripple = document.createElement("span");
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
+    if (inquiryToggle && inquiryForm && contactCard) {
+        inquiryToggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            contactCard.classList.add("form-open");
+        });
+    }
 
-            ripple.style.width = ripple.style.height = size + "px";
-            ripple.style.left = x + "px";
-            ripple.style.top = y + "px";
-            ripple.classList.add("ripple");
+    document.querySelectorAll(".ko-hero-column").forEach((column) => {
+        column.addEventListener("mouseenter", () => {
+            column.classList.add("is-hovered");
+        });
 
-            this.appendChild(ripple);
-
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
+        column.addEventListener("mouseleave", () => {
+            column.classList.remove("is-hovered");
         });
     });
 
-    // 언어 버튼 전환 효과
-    const langButtons = document.querySelectorAll(".lang-btn");
-    langButtons.forEach((button) => {
-        button.addEventListener("click", function (e) {
-            e.preventDefault();
+    document.querySelectorAll(".ko-services .korean-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+            card.classList.add("is-card-hovered");
+        });
 
-            // 모든 버튼에서 active 클래스 제거
-            langButtons.forEach((btn) => btn.classList.remove("active"));
-
-            // 클릭된 버튼에 active 클래스 추가
-            this.classList.add("active");
-
-            // 전환 애니메이션
-            this.style.transform = "scale(0.95)";
-            setTimeout(() => {
-                this.style.transform = "scale(1)";
-            }, 150);
+        card.addEventListener("mouseleave", () => {
+            card.classList.remove("is-card-hovered");
         });
     });
 
-    // 네비게이션 스크롤 효과
-    const nav = document.querySelector(".korean-nav");
-    if (nav) {
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 50) {
-                nav.style.background = "rgba(243, 243, 230, 0.98)";
-                nav.style.boxShadow = "0 2px 20px rgba(28, 3, 3, 0.1)";
-            } else {
-                nav.style.background = "rgba(243, 243, 230, 0.95)";
-                nav.style.boxShadow = "none";
-            }
-        });
-    }
+    let aboutStripWasVisible = false;
+    let aboutImageReplayTimer;
+    let aboutHighlightReplayTimer;
+    let servicesLightTimer;
 
-    // 텍스트 타이핑 효과 (선택사항)
-    const heroText = document.querySelector(".hero-main-text");
-    if (heroText) {
-        const text = heroText.textContent;
-        heroText.textContent = "";
+    function replayAboutMotion() {
+        if (reduceMotion.matches) return;
 
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroText.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
+        if (aboutSection) {
+            aboutSection.classList.remove("about-motion-on");
+            void aboutSection.offsetWidth;
+            aboutSection.classList.add("about-motion-on");
+        }
 
-        setTimeout(typeWriter, 500);
-    }
-});
+        if (aboutStrip) {
+            window.clearTimeout(aboutImageReplayTimer);
+            aboutStrip.classList.remove("about-image-in");
+            aboutStrip.classList.add("about-image-reset");
+            void aboutStrip.offsetWidth;
 
-// CSS 애니메이션을 위한 스타일 추가
-const style = document.createElement("style");
-style.textContent = `
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        transform: scale(0);
-        animation: ripple-animation 0.6s linear;
-        pointer-events: none;
-    }
-    
-    @keyframes ripple-animation {
-        to {
-            transform: scale(4);
-            opacity: 0;
+            aboutImageReplayTimer = window.setTimeout(() => {
+                aboutStrip.classList.remove("about-image-reset");
+                void aboutStrip.offsetWidth;
+                window.requestAnimationFrame(() => {
+                    aboutStrip.classList.add("about-image-in");
+                });
+            }, 34);
+        }
+
+        if (aboutHighlight) {
+            window.clearTimeout(aboutHighlightReplayTimer);
+            aboutHighlight.classList.remove("about-highlight-in");
+            aboutHighlight.classList.add("about-highlight-reset");
+            void aboutHighlight.offsetWidth;
+
+            aboutHighlightReplayTimer = window.setTimeout(() => {
+                aboutHighlight.classList.remove("about-highlight-reset");
+                void aboutHighlight.offsetWidth;
+                window.requestAnimationFrame(() => {
+                    aboutHighlight.classList.add("about-highlight-in");
+                });
+            }, 120);
         }
     }
-    
-    .korean-card {
-        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    function replayServicesMotion() {
+        if (!servicesSection || reduceMotion.matches) return;
+
+        window.clearTimeout(servicesLightTimer);
+        servicesSection.classList.add("services-transition-reset");
+        servicesSection.classList.remove("services-motion-on");
+        servicesSection.classList.remove("services-light-on");
+        void servicesSection.offsetWidth;
+        servicesSection.classList.remove("services-transition-reset");
+        void servicesSection.offsetWidth;
+        servicesSection.classList.add("services-motion-on");
+        servicesLightTimer = window.setTimeout(() => {
+            servicesSection.classList.add("services-light-on");
+        }, 1800);
     }
-    
-    .lang-btn {
-        transition: all 0.2s ease;
+
+    function replaySectionMotion(section, className) {
+        if (!section || reduceMotion.matches) return;
+
+        section.classList.remove(className);
+        void section.offsetWidth;
+        section.classList.add(className);
     }
-`;
-document.head.appendChild(style);
+
+    function updateAboutStrip() {
+        if (!aboutStrip) return;
+        const rect = aboutStrip.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight * 0.86 && rect.bottom > 0;
+
+        if (isVisible && !aboutStripWasVisible) {
+            replayAboutMotion();
+        }
+
+        aboutStripWasVisible = isVisible;
+    }
+
+    window.addEventListener("scroll", updateAboutStrip);
+    updateAboutStrip();
+
+    let servicesWasVisible = false;
+
+    function updateServicesMotion() {
+        if (!servicesSection) return;
+        const rect = servicesSection.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight * 0.48 && rect.bottom > window.innerHeight * 0.28;
+
+        if (isVisible && !servicesWasVisible) {
+            replayServicesMotion();
+        }
+
+        servicesWasVisible = isVisible;
+    }
+
+    window.addEventListener("scroll", updateServicesMotion);
+    updateServicesMotion();
+
+    let worksWasVisible = false;
+    let contactWasVisible = false;
+
+    function updateTextSectionMotion() {
+        if (worksSection) {
+            const worksRect = worksSection.getBoundingClientRect();
+            const worksVisible = worksRect.top < window.innerHeight * 0.55 && worksRect.bottom > window.innerHeight * 0.24;
+
+            if (worksVisible && !worksWasVisible) {
+                replaySectionMotion(worksSection, "works-motion-on");
+            }
+
+            worksWasVisible = worksVisible;
+        }
+
+        if (contactSection) {
+            const contactRect = contactSection.getBoundingClientRect();
+            const contactVisible = contactRect.top < window.innerHeight * 0.55 && contactRect.bottom > window.innerHeight * 0.24;
+
+            if (contactVisible && !contactWasVisible) {
+                replaySectionMotion(contactSection, "contact-motion-on");
+            }
+
+            contactWasVisible = contactVisible;
+        }
+    }
+
+    window.addEventListener("scroll", updateTextSectionMotion);
+    updateTextSectionMotion();
+
+    if (initialHash) {
+        window.setTimeout(() => {
+            const target = document.querySelector(initialHash);
+            if (target) {
+                scrollToSectionStart(target, "auto");
+            }
+
+            if (initialHash === "#services") {
+                replayServicesMotion();
+            }
+
+            if (initialHash === "#works") {
+                replaySectionMotion(worksSection, "works-motion-on");
+            }
+
+            if (initialHash === "#contact") {
+                replaySectionMotion(contactSection, "contact-motion-on");
+            }
+
+            sectionHashLocked = false;
+            updateSectionHash();
+        }, 120);
+    } else {
+        sectionHashLocked = false;
+    }
+
+    window.setTimeout(playHeroIntro, 120);
+});
