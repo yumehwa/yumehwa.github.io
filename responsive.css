@@ -782,55 +782,92 @@ canvas {
         margin: 0 !important;
     }
 
-    .ko-contact .korean-footer > .container {
+    .ko-contact .korean-footer > .container,
+    .ko-contact .korean-footer > .container:first-child {
         width: 100% !important;
         display: grid !important;
-        grid-template-columns: minmax(0, 1fr) !important;
-        gap: 2.5rem !important;
+        grid-template-columns: minmax(0, 1fr) minmax(8.25rem, auto) !important;
+        grid-template-areas:
+            "brand brand"
+            "copy services"
+            "social services" !important;
+        align-items: start !important;
+        column-gap: 1.5rem !important;
+        row-gap: 1.5rem !important;
         padding: 3.5rem var(--responsive-page-pad) 2rem !important;
     }
 
+    .ko-contact .korean-footer > .container > div:first-child,
+    .ko-contact .korean-footer > .container:first-child > div:first-child {
+        display: contents !important;
+        grid-area: auto !important;
+    }
+
     .ko-contact .korean-footer .brand {
+        grid-area: brand !important;
+        color: #ffffff !important;
         font-size: 2.25rem !important;
         letter-spacing: 0 !important;
     }
 
     .ko-contact .korean-footer p {
-        max-width: 32rem !important;
+        grid-area: copy !important;
+        align-self: start !important;
+        max-width: 22rem !important;
+        margin: 0 !important;
         font-size: 0.86rem !important;
         line-height: 1.65 !important;
         letter-spacing: 0 !important;
     }
 
-    .ko-footer-services {
-        width: 100% !important;
-        display: grid !important;
-        grid-template-columns: auto minmax(0, 1fr) !important;
-        align-items: start !important;
-        gap: 1.5rem !important;
-    }
-
-    .ko-footer-services h4 {
-        margin: 0 !important;
-        font-size: 0.8rem !important;
-        letter-spacing: 0 !important;
-    }
-
-    .ko-footer-services ul {
-        width: 100% !important;
-        margin: 0 !important;
+    .ko-footer-services,
+    .ko-contact .ko-footer-services {
+        grid-area: services !important;
+        align-self: start !important;
+        justify-self: end !important;
+        width: auto !important;
+        min-width: 8.25rem !important;
+        display: block !important;
         text-align: right !important;
     }
 
-    .ko-footer-services a {
+    .ko-footer-services h4,
+    .ko-contact .ko-footer-services h4 {
+        margin: 0 0 0.75rem !important;
+        font-size: 0.8rem !important;
+        letter-spacing: 0 !important;
+        line-height: 1.2 !important;
+        text-align: right !important;
+    }
+
+    .ko-footer-services ul,
+    .ko-contact .ko-footer-services ul {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: right !important;
+    }
+
+    .ko-footer-services li,
+    .ko-contact .ko-footer-services li {
+        margin: 0 0 0.42rem !important;
+    }
+
+    .ko-footer-services a,
+    .ko-contact .ko-footer-services a {
         font-size: 0.78rem !important;
         letter-spacing: 0 !important;
     }
 
     .ko-contact .korean-footer .social {
-        grid-column: 1 !important;
+        grid-area: social !important;
+        align-self: end !important;
         justify-self: start !important;
         gap: 0.75rem !important;
+    }
+
+    .ko-contact .korean-footer .social a {
+        font-size: 1.15rem !important;
     }
 
     .ko-contact .foot-bottom .container {
