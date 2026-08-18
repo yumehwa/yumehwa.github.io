@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dialogImage = dialog?.querySelector(".dialog-media img");
     const dialogTitle = dialog?.querySelector(".dialog-copy h2");
     const dialogField = dialog?.querySelector(".dialog-copy > span");
+    const dialogDescription = dialog?.querySelector(".dialog-description");
     const dialogCount = dialog?.querySelector(".dialog-count");
     const dialogThumbnails = dialog?.querySelector(".dialog-thumbnails");
     const closeButton = dialog?.querySelector(".dialog-close");
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let activeCard = null;
     let activeImages = [];
     let activeAlts = [];
+    let activeDescriptions = [];
     let activeImageIndex = 0;
 
     const revealObserver = new IntersectionObserver(
@@ -85,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
         activeAlts = (card.dataset.alts || "")
             .split("|")
             .map((item) => item.trim());
+        activeDescriptions = (card.dataset.descriptions || "")
+            .split("|")
+            .map((item) => item.trim());
         activeImageIndex = 0;
         dialogTitle.textContent = card.dataset.title;
         dialogField.textContent = card.dataset.field;
@@ -125,6 +130,12 @@ document.addEventListener("DOMContentLoaded", () => {
             activeAlts[activeImageIndex] ||
             activeCard.querySelector("img")?.alt ||
             activeCard.dataset.title;
+        if (dialogDescription) {
+            const description =
+                activeDescriptions[activeImageIndex] || activeCard.dataset.description || "";
+            dialogDescription.textContent = description;
+            dialogDescription.hidden = !description;
+        }
         if (dialogCount) {
             dialogCount.textContent =
                 activeImages.length > 1

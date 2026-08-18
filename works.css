@@ -413,6 +413,16 @@ img {
     object-position: center 38%;
 }
 
+.project-media-poster {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(218, 222, 224, 0.72));
+}
+
+.project-media-poster img {
+    object-fit: contain;
+    object-position: center;
+}
+
 .project-card:hover .project-media::before,
 .project-card:focus-visible .project-media::before {
     transform: translateX(130%);
@@ -676,6 +686,15 @@ img {
     color: rgba(5, 5, 5, 0.58);
     font-family: "Inter", sans-serif;
     font-size: 0.76rem;
+}
+
+.dialog-copy > .dialog-description {
+    margin: 0.9rem 0 0;
+    color: rgba(5, 5, 5, 0.72);
+    font-family: "GmarketSans", "Noto Sans KR", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    line-height: 1.65;
 }
 
 .dialog-count {
