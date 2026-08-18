@@ -3,8 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const revealTargets = document.querySelectorAll(".reveal");
     const hero = document.querySelector(".ko-hero");
     const languageLinks = document.querySelectorAll("[data-language-page]");
+    const languageSwitch = document.querySelector(".floating-language-switch.language-intro");
     let heroIntroCanReplay = false;
     let heroIntroTimer;
+    let languageDockTimer;
 
     languageLinks.forEach((link) => {
         link.addEventListener("click", (event) => {
@@ -61,6 +63,22 @@ document.addEventListener("DOMContentLoaded", () => {
     let sectionSnapTimer;
     let sectionSnapActive = false;
     let sectionHashLocked = Boolean(initialHash);
+
+    function playLanguageIntro() {
+        if (!languageSwitch) return;
+
+        if (reduceMotion.matches) {
+            languageSwitch.classList.add("is-docked");
+            return;
+        }
+
+        window.clearTimeout(languageDockTimer);
+        languageDockTimer = window.setTimeout(() => {
+            languageSwitch.classList.add("is-docked");
+        }, 720);
+    }
+
+    playLanguageIntro();
 
     function updateFloatVisuals() {
         if (!floatVisuals.length || reduceMotion.matches) return;

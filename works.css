@@ -305,20 +305,16 @@ img {
 }
 
 .archive-filters {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
     margin-bottom: 1.5rem;
     border-top: 1px solid var(--black);
     border-bottom: 1px solid var(--line);
-    scrollbar-width: none;
-}
-
-.archive-filters::-webkit-scrollbar {
-    display: none;
 }
 
 .archive-filters button {
-    min-width: 8rem;
+    width: 100%;
+    min-width: 0;
     padding: 1rem 1.25rem;
     border: 0;
     border-right: 1px solid var(--line);
@@ -327,8 +323,13 @@ img {
     font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
+    white-space: nowrap;
     cursor: pointer;
     transition: color 250ms ease, background 250ms ease;
+}
+
+.archive-filters button:last-child {
+    border-right: 0;
 }
 
 .archive-filters button:hover,
@@ -795,6 +796,22 @@ img {
     .works-cta-copy h2 {
         font-size: 4.8rem;
     }
+
+    .archive-filters {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .archive-filters button {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .archive-filters button:nth-child(4n) {
+        border-right: 0;
+    }
+
+    .archive-filters button:nth-last-child(-n + 4) {
+        border-bottom: 0;
+    }
 }
 
 @media (max-width: 960px) {
@@ -957,19 +974,31 @@ img {
     }
 
     .archive-filters {
-        overflow-x: auto;
-        scrollbar-width: none;
-    }
-
-    .archive-filters::-webkit-scrollbar {
-        display: none;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-bottom: 0;
     }
 
     .archive-filters button {
-        min-width: auto;
-        flex: 0 0 auto;
         padding: 0.9rem 1rem;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
         font-size: 0.62rem;
+    }
+
+    .archive-filters button:nth-child(even) {
+        border-right: 0;
+    }
+
+    .archive-filters button:nth-last-child(-n + 4) {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .archive-filters button:nth-last-child(2) {
+        border-right: 1px solid var(--line);
+    }
+
+    .archive-filters button:last-child {
+        border-right: 0;
     }
 
     .project-grid {
