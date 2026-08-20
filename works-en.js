@@ -3,20 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const detailPageGalleries = {
         "ecommerce-detail": [
             {
-                title: "런칭 프로모션 콘텐츠",
-                description: "온라인 판매 채널의 런칭 이벤트와 리뷰 프로모션을 위한 콘텐츠 디자인입니다.",
+                title: "Launch Promotion Content",
+                description: "Content design for launch events and review promotions across online sales channels.",
                 images: [
                     "images/works/ecommerce-content/launch-event-01.jpg",
                     "images/works/ecommerce-content/launch-event-02.jpg",
                 ],
                 alts: [
-                    "반려동물 유모차 런칭 기념 구매 이벤트 콘텐츠",
-                    "반려동물 유모차 런칭 기념 리뷰 이벤트 콘텐츠",
+                    "Pet stroller launch purchase promotion",
+                    "Pet stroller launch review promotion",
                 ],
             },
             {
-                title: "캡슐 커피머신 상세페이지",
-                description: "제품의 주요 기능과 사용 정보를 순서에 맞춰 정리한 이커머스 상세페이지 디자인입니다.",
+                title: "Capsule Coffee Machine Product Detail Page",
+                description: "An e-commerce product detail page that organizes key features and usage information in a clear sequence.",
                 images: [
                     "images/works/detail-pages/coffee-machine/coffee-machine-001.jpg",
                     "images/works/detail-pages/coffee-machine/coffee-machine-002.jpg",
@@ -27,24 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     "images/works/detail-pages/coffee-machine/coffee-machine-007.jpg",
                 ],
                 alts: [
-                    "캡슐 커피머신 상세페이지 메인 비주얼",
-                    "캡슐 커피 호환 정보 디자인",
-                    "캡슐 커피머신 가격과 특징 소개",
-                    "캡슐 커피머신 주요 기능 소개",
-                    "캡슐 커피머신 물탱크와 추출 기능 소개",
-                    "캡슐 커피머신 사용 방법과 청소 안내",
-                    "캡슐 커피머신 제품 사양 안내",
+                    "Capsule coffee machine product detail page hero visual",
+                    "Capsule compatibility information design",
+                    "Capsule coffee machine price and feature overview",
+                    "Capsule coffee machine key feature overview",
+                    "Capsule coffee machine water tank and extraction feature overview",
+                    "Capsule coffee machine usage and cleaning guide",
+                    "Capsule coffee machine product specifications",
                 ],
             },
             {
-                title: "벽시계 상세페이지",
-                description: "제품의 컬러와 공간 연출 이미지를 중심으로 구성한 인테리어 제품 상세페이지 디자인입니다.",
+                title: "Wall Clock Product Detail Page",
+                description: "An interior product detail page centered on color options and styled room imagery.",
                 images: ["images/works/detail-pages/wall-clock/wall-clock-detail.jpg"],
-                alts: ["컬러 벽시계의 공간 연출과 제품 정보를 담은 상세페이지"],
+                alts: ["Product detail page featuring a colorful wall clock in styled interior spaces"],
             },
             {
-                title: "알루미늄 캐리어 상세페이지",
-                description: "제품의 소재, 구조, 사용 장면과 세부 사양을 단계적으로 보여주는 이커머스 상세페이지 디자인입니다.",
+                title: "Aluminum Suitcase Product Detail Page",
+                description: "An e-commerce product detail page that presents materials, construction, use cases, and detailed specifications step by step.",
                 images: [
                     "images/works/detail-pages/suitcase/suitcase-001.jpg",
                     "images/works/detail-pages/suitcase/suitcase-002.jpg",
@@ -60,18 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     "images/works/detail-pages/suitcase/suitcase-012.jpg",
                 ],
                 alts: [
-                    "알루미늄 캐리어 리뉴얼 안내",
-                    "알루미늄 캐리어 브랜드와 소재 소개",
-                    "알루미늄 캐리어 제품 메인 비주얼",
-                    "알루미늄 캐리어 여행 장면",
-                    "알루미늄 캐리어 제품 규격 안내",
-                    "알루미늄 캐리어 고객 후기 소개",
-                    "알루미늄 캐리어 주요 기능 설명",
-                    "알루미늄 캐리어 디테일 이미지 모음",
-                    "알루미늄 캐리어 비교 디자인",
-                    "알루미늄 캐리어 특징 체크리스트",
-                    "알루미늄 캐리어 제작 품질 소개",
-                    "알루미늄 캐리어 프리미엄 여행 비주얼",
+                    "Aluminum suitcase renewal announcement",
+                    "Aluminum suitcase brand and material introduction",
+                    "Aluminum suitcase main product visual",
+                    "Aluminum suitcase travel scene",
+                    "Aluminum suitcase size and specification guide",
+                    "Aluminum suitcase customer review section",
+                    "Aluminum suitcase key feature overview",
+                    "Aluminum suitcase detail image collection",
+                    "Aluminum suitcase comparison design",
+                    "Aluminum suitcase feature checklist",
+                    "Aluminum suitcase production quality overview",
+                    "Aluminum suitcase premium travel visual",
                 ],
             },
         ],
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
             button.classList.toggle("has-label", isGalleryThumbnail);
             button.setAttribute(
                 "aria-label",
-                isGalleryThumbnail ? `${item.title} 보기` : `${activeCard.dataset.title} 이미지 ${index + 1}`
+                isGalleryThumbnail ? `View ${item.title}` : `${activeCard.dataset.title}, image ${index + 1}`
             );
             button.setAttribute(
                 "aria-pressed",
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gallery.images.forEach((src, index) => {
             const image = document.createElement("img");
             image.src = src;
-            image.alt = gallery.alts?.[index] || `${gallery.title} 이미지 ${index + 1}`;
+            image.alt = gallery.alts?.[index] || `${gallery.title}, image ${index + 1}`;
             image.loading = index === 0 ? "eager" : "lazy";
             image.decoding = "async";
             fragment.append(image);

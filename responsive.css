@@ -1140,6 +1140,16 @@ canvas {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        scroll-snap-type: none !important;
+    }
+
+    main > section {
+        scroll-snap-align: none !important;
+        scroll-snap-stop: normal !important;
+    }
+
     .ko-hero-column,
     .ko-hero-column img,
     .ko-services .korean-card,

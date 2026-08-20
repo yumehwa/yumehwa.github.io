@@ -60,8 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const touchInterface = window.matchMedia("(hover: none), (pointer: coarse)");
     const pageSections = Array.from(document.querySelectorAll("main > section[id]"));
     const initialHash = window.location.hash;
-    let sectionSnapTimer;
-    let sectionSnapActive = false;
     let sectionHashLocked = Boolean(initialHash);
 
     function playLanguageIntro() {
@@ -94,48 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function snapToSection(section) {
-        if (!section) return;
-
-        sectionSnapActive = true;
-        scrollToSectionStart(section, "smooth");
-        window.history.replaceState(null, "", `#${section.id}`);
-        window.setTimeout(() => {
-            sectionSnapActive = false;
-        }, 720);
-    }
-
     function scrollToSectionStart(section, behavior = "smooth") {
         if (!section) return;
 
         const sectionTop = section.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({ top: Math.round(sectionTop), behavior });
-    }
-
-    function getNearestSectionIndex() {
-        if (pageSections.length === 0) return -1;
-
-        return pageSections
-            .map((section, index) => ({
-                index,
-                distance: Math.abs(section.getBoundingClientRect().top),
-            }))
-            .sort((a, b) => a.distance - b.distance)[0].index;
-    }
-
-    function scheduleSectionSnap() {
-        if (reduceMotion.matches || stackedLayout.matches || sectionSnapActive || pageSections.length === 0) return;
-
-        window.clearTimeout(sectionSnapTimer);
-        sectionSnapTimer = window.setTimeout(() => {
-            const index = getNearestSectionIndex();
-            if (index < 0) return;
-
-            const distance = Math.abs(pageSections[index].getBoundingClientRect().top);
-            if (distance < 2 || distance > window.innerHeight * 0.42) return;
-
-            snapToSection(pageSections[index]);
-        }, 150);
     }
 
     function updateSectionHash() {
@@ -154,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(() => {
             updateScrollProgress();
             updateFloatVisuals();
-            scheduleSectionSnap();
             updateSectionHash();
 
             if (window.scrollY > 180) {

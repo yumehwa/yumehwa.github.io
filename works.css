@@ -306,7 +306,7 @@ img {
 
 .archive-filters {
     display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-columns: repeat(9, minmax(0, 1fr));
     margin-bottom: 1.5rem;
     border-top: 1px solid var(--black);
     border-bottom: 1px solid var(--line);
@@ -606,6 +606,13 @@ img {
     place-items: center;
 }
 
+.dialog-image-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+
 .dialog-media img {
     position: absolute;
     inset: 0;
@@ -613,6 +620,52 @@ img {
     height: 100%;
     max-width: 100%;
     max-height: 100%;
+    object-fit: contain;
+}
+
+.dialog-media.is-scroll-gallery {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: clamp(1.25rem, 2vw, 2rem) 0;
+    overscroll-behavior: contain;
+    scrollbar-color: rgba(45, 57, 62, 0.48) transparent;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+}
+
+.dialog-media.is-scroll-gallery::-webkit-scrollbar {
+    width: 0.55rem;
+}
+
+.dialog-media.is-scroll-gallery::-webkit-scrollbar-thumb {
+    border: 0.12rem solid transparent;
+    border-radius: 999px;
+    background: rgba(45, 57, 62, 0.48);
+    background-clip: padding-box;
+}
+
+.dialog-image-stack.is-scroll-gallery {
+    position: static;
+    display: flex;
+    width: min(58%, 36rem);
+    height: auto;
+    min-height: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.dialog-media.is-scroll-gallery .dialog-image-stack > img {
+    position: static;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    flex: 0 0 auto;
+    background: #fff;
+    box-shadow: 0 0.9rem 2.2rem rgba(28, 37, 41, 0.13);
     object-fit: contain;
 }
 
@@ -659,6 +712,35 @@ img {
     object-fit: cover;
     opacity: 0.62;
     transition: opacity 180ms ease, transform 220ms ease;
+}
+
+.project-dialog.has-scroll-gallery .dialog-thumbnails {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dialog-thumbnail.has-label {
+    height: 7.25rem;
+    min-height: 0;
+    aspect-ratio: auto;
+    grid-template-rows: 4.7rem minmax(0, 1fr);
+    text-align: left;
+}
+
+.dialog-thumbnail.has-label img {
+    height: 100%;
+    min-height: 0;
+}
+
+.dialog-thumbnail.has-label span {
+    overflow: hidden;
+    padding: 0.55rem 0.5rem 0.5rem;
+    color: rgba(5, 5, 5, 0.72);
+    font-family: "GmarketSans", "Noto Sans KR", sans-serif;
+    font-size: 0.58rem;
+    font-weight: 500;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .dialog-thumbnail:hover,
@@ -817,18 +899,18 @@ img {
     }
 
     .archive-filters {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .archive-filters button {
         border-bottom: 1px solid var(--line);
     }
 
-    .archive-filters button:nth-child(4n) {
+    .archive-filters button:nth-child(3n) {
         border-right: 0;
     }
 
-    .archive-filters button:nth-last-child(-n + 4) {
+    .archive-filters button:nth-last-child(-n + 3) {
         border-bottom: 0;
     }
 }
@@ -1008,16 +1090,14 @@ img {
         border-right: 0;
     }
 
-    .archive-filters button:nth-last-child(-n + 4) {
+    .archive-filters button:nth-last-child(-n + 3) {
         border-bottom: 1px solid var(--line);
     }
 
-    .archive-filters button:nth-last-child(2) {
-        border-right: 1px solid var(--line);
-    }
-
     .archive-filters button:last-child {
+        grid-column: 1 / -1;
         border-right: 0;
+        border-bottom: 0;
     }
 
     .project-grid {
@@ -1074,6 +1154,11 @@ img {
         overflow: hidden;
     }
 
+    .dialog-image-stack.is-scroll-gallery {
+        width: min(92%, 30rem);
+        gap: 0.8rem;
+    }
+
     .dialog-copy {
         min-height: 0;
         max-height: none;
@@ -1095,6 +1180,42 @@ img {
         grid-template-columns: repeat(3, minmax(4.25rem, 1fr));
         gap: 0.55rem;
         margin: 0 0 1.5rem;
+    }
+
+    .project-dialog.has-scroll-gallery .dialog-thumbnails {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .dialog-thumbnail.has-label {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 1 / 0.86;
+        grid-template-rows: 1fr;
+    }
+
+    .dialog-thumbnail.has-label span {
+        display: none;
+    }
+
+    .project-dialog.has-scroll-gallery .dialog-copy h2 {
+        margin-bottom: 0.5rem;
+        font-size: 1.45rem;
+    }
+
+    .project-dialog.has-scroll-gallery .dialog-copy > .dialog-description {
+        margin-top: 0.55rem;
+        font-size: 0.66rem;
+        line-height: 1.5;
+    }
+
+    .project-dialog.has-scroll-gallery .dialog-count {
+        margin-top: 0.55rem;
+    }
+
+    .project-dialog.has-scroll-gallery .dialog-controls {
+        margin-top: 0.75rem;
     }
 
     .dialog-controls {
