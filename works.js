@@ -3,40 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const detailPageGalleries = {
         "ecommerce-detail": [
             {
-                title: "런칭 프로모션 콘텐츠",
-                description: "온라인 판매 채널의 런칭 이벤트와 리뷰 프로모션을 위한 콘텐츠 디자인입니다.",
-                images: [
-                    "images/works/ecommerce-content/launch-event-01.jpg",
-                    "images/works/ecommerce-content/launch-event-02.jpg",
-                ],
-                alts: [
-                    "반려동물 유모차 런칭 기념 구매 이벤트 콘텐츠",
-                    "반려동물 유모차 런칭 기념 리뷰 이벤트 콘텐츠",
-                ],
-            },
-            {
-                title: "캡슐 커피머신 상세페이지",
-                description: "제품의 주요 기능과 사용 정보를 순서에 맞춰 정리한 이커머스 상세페이지 디자인입니다.",
-                images: [
-                    "images/works/detail-pages/coffee-machine/coffee-machine-001.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-002.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-003.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-004.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-005.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-006.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-007.jpg",
-                ],
-                alts: [
-                    "캡슐 커피머신 상세페이지 메인 비주얼",
-                    "캡슐 커피 호환 정보 디자인",
-                    "캡슐 커피머신 가격과 특징 소개",
-                    "캡슐 커피머신 주요 기능 소개",
-                    "캡슐 커피머신 물탱크와 추출 기능 소개",
-                    "캡슐 커피머신 사용 방법과 청소 안내",
-                    "캡슐 커피머신 제품 사양 안내",
-                ],
-            },
-            {
                 title: "벽시계 상세페이지",
                 description: "제품의 컬러와 공간 연출 이미지를 중심으로 구성한 인테리어 제품 상세페이지 디자인입니다.",
                 images: ["images/works/detail-pages/wall-clock/wall-clock-detail.jpg"],
@@ -72,6 +38,40 @@ document.addEventListener("DOMContentLoaded", () => {
                     "알루미늄 캐리어 특징 체크리스트",
                     "알루미늄 캐리어 제작 품질 소개",
                     "알루미늄 캐리어 프리미엄 여행 비주얼",
+                ],
+            },
+            {
+                title: "캡슐 커피머신 상세페이지",
+                description: "제품의 주요 기능과 사용 정보를 순서에 맞춰 정리한 이커머스 상세페이지 디자인입니다.",
+                images: [
+                    "images/works/detail-pages/coffee-machine/coffee-machine-001.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-002.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-003.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-004.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-005.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-006.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-007.jpg",
+                ],
+                alts: [
+                    "캡슐 커피머신 상세페이지 메인 비주얼",
+                    "캡슐 커피 호환 정보 디자인",
+                    "캡슐 커피머신 가격과 특징 소개",
+                    "캡슐 커피머신 주요 기능 소개",
+                    "캡슐 커피머신 물탱크와 추출 기능 소개",
+                    "캡슐 커피머신 사용 방법과 청소 안내",
+                    "캡슐 커피머신 제품 사양 안내",
+                ],
+            },
+            {
+                title: "런칭 프로모션 콘텐츠",
+                description: "온라인 판매 채널의 런칭 이벤트와 리뷰 프로모션을 위한 콘텐츠 디자인입니다.",
+                images: [
+                    "images/works/ecommerce-content/launch-event-01.jpg",
+                    "images/works/ecommerce-content/launch-event-02.jpg",
+                ],
+                alts: [
+                    "반려동물 유모차 런칭 기념 구매 이벤트 콘텐츠",
+                    "반려동물 유모차 런칭 기념 리뷰 이벤트 콘텐츠",
                 ],
             },
         ],

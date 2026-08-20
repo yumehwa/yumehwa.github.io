@@ -3,40 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const detailPageGalleries = {
         "ecommerce-detail": [
             {
-                title: "Launch Promotion Content",
-                description: "Content design for launch events and review promotions across online sales channels.",
-                images: [
-                    "images/works/ecommerce-content/launch-event-01.jpg",
-                    "images/works/ecommerce-content/launch-event-02.jpg",
-                ],
-                alts: [
-                    "Pet stroller launch purchase promotion",
-                    "Pet stroller launch review promotion",
-                ],
-            },
-            {
-                title: "Capsule Coffee Machine Product Detail Page",
-                description: "An e-commerce product detail page that organizes key features and usage information in a clear sequence.",
-                images: [
-                    "images/works/detail-pages/coffee-machine/coffee-machine-001.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-002.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-003.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-004.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-005.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-006.jpg",
-                    "images/works/detail-pages/coffee-machine/coffee-machine-007.jpg",
-                ],
-                alts: [
-                    "Capsule coffee machine product detail page hero visual",
-                    "Capsule compatibility information design",
-                    "Capsule coffee machine price and feature overview",
-                    "Capsule coffee machine key feature overview",
-                    "Capsule coffee machine water tank and extraction feature overview",
-                    "Capsule coffee machine usage and cleaning guide",
-                    "Capsule coffee machine product specifications",
-                ],
-            },
-            {
                 title: "Wall Clock Product Detail Page",
                 description: "An interior product detail page centered on color options and styled room imagery.",
                 images: ["images/works/detail-pages/wall-clock/wall-clock-detail.jpg"],
@@ -72,6 +38,40 @@ document.addEventListener("DOMContentLoaded", () => {
                     "Aluminum suitcase feature checklist",
                     "Aluminum suitcase production quality overview",
                     "Aluminum suitcase premium travel visual",
+                ],
+            },
+            {
+                title: "Capsule Coffee Machine Product Detail Page",
+                description: "An e-commerce product detail page that organizes key features and usage information in a clear sequence.",
+                images: [
+                    "images/works/detail-pages/coffee-machine/coffee-machine-001.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-002.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-003.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-004.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-005.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-006.jpg",
+                    "images/works/detail-pages/coffee-machine/coffee-machine-007.jpg",
+                ],
+                alts: [
+                    "Capsule coffee machine product detail page hero visual",
+                    "Capsule compatibility information design",
+                    "Capsule coffee machine price and feature overview",
+                    "Capsule coffee machine key feature overview",
+                    "Capsule coffee machine water tank and extraction feature overview",
+                    "Capsule coffee machine usage and cleaning guide",
+                    "Capsule coffee machine product specifications",
+                ],
+            },
+            {
+                title: "Launch Promotion Content",
+                description: "Content design for launch events and review promotions across online sales channels.",
+                images: [
+                    "images/works/ecommerce-content/launch-event-01.jpg",
+                    "images/works/ecommerce-content/launch-event-02.jpg",
+                ],
+                alts: [
+                    "Pet stroller launch purchase promotion",
+                    "Pet stroller launch review promotion",
                 ],
             },
         ],
